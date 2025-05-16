@@ -23,8 +23,11 @@ jobs:
     - name: Build assets with Mix
       run: npx mix
 
-    - name: Build site with Jigsaw
+    - name: Build site with Jigsaw for production
       run: ./vendor/bin/jigsaw build production
+
+    - name: List build contents
+      run: ls -la ./build_production
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
