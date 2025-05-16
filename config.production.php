@@ -2,5 +2,5 @@
 
 return [
     'production' => true,
-    'baseUrl' => 'https://username.github.io/3doptika',
+    'baseUrl' => 'https://sykolos.github.io/3doptika',
 ];
