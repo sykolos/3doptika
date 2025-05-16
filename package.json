@@ -9,6 +9,7 @@
         "prod": "mix --production"
     },
     "devDependencies": {
+        "fs-extra": "^11.3.0",
         "laravel-mix": "^6.0.39",
         "laravel-mix-jigsaw": "^2.0.0",
         "sass": "^1.89.0",

@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
+const fs = require('fs-extra');
 require('laravel-mix-jigsaw');
+
 
 mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/build');
