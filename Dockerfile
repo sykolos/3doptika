@@ -19,11 +19,11 @@ WORKDIR /var/www/html
 # Copy app
 COPY . .
 
-# Install Jigsaw
-RUN composer global require tightenco/jigsaw
+# Függőségek telepítése a projekt szintjén
+RUN composer install
 
-# Make global composer bin available
-ENV PATH="/root/.composer/vendor/bin:$PATH"
+# Build parancs a projekt saját jigsaw-jával
+RUN php vendor/bin/jigsaw build production
 
 # Build site
 RUN jigsaw build production

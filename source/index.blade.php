@@ -2,7 +2,6 @@
 
 @section('body')
 <div class="p-8">
-    <h1 class="text-3xl font-bold">Hello world!</h1>
-    <h2>Ez egy teszt a github actionsellll</h2>
+    <h1 class="text-3xl font-bold">home tartalma</h1>
 </div>
 @endsection
