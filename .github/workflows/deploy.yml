@@ -17,7 +17,12 @@ jobs:
       with:
         php-version: '8.2'
 
-    
+    - name: Install Node dependencies
+      run: npm install
+
+    - name: Build assets with Mix
+      run: npx mix
+
     - name: Build site with Jigsaw
       run: ./vendor/bin/jigsaw build production
 
