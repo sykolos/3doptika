@@ -1,9 +1,10 @@
-/build_local/
+/build_production/
 /cache/
 /node_modules/
 /vendor/
 /.idea/
 /.vscode/
+.env
 npm-debug.log
 
 # Optional ignores

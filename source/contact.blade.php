@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="p-8">
-    <h1 class="text-3xl font-bold">Ez a főoldal</h1>
+    <h1 class="text-3xl font-bold">Kapcsolat</h1>
 </div>
 @endsection
