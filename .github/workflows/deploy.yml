@@ -65,8 +65,16 @@ jobs:
       - name: Write SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+
+      - name: Debug key fingerprint (safe)
+        run: |
+          echo "Derived public key fingerprint from secret:"
+          ssh-keygen -y -f ~/.ssh/deploy_key | ssh-keygen -lf -
+          echo "Derived public key (first 60 chars):"
+          ssh-keygen -y -f ~/.ssh/deploy_key | head -c 60; echo
+
 
       - name: Deploy via SSH+SCP (no rsync, no extra actions)
         run: |
