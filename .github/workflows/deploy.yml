@@ -38,11 +38,14 @@ jobs:
 
       - name: Add known_hosts
         run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
           if [ "${{ github.ref_name }}" = "develop" ]; then
             ssh-keyscan -H "${{ secrets.STAGING_HOST }}" >> ~/.ssh/known_hosts
           else
             ssh-keyscan -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
           fi
+
 
       - name: Deploy - choose target
         id: target
