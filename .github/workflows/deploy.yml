@@ -36,47 +36,19 @@ jobs:
       - name: Build Jigsaw (production)
         run: ./vendor/bin/jigsaw build production
 
-      - name: Add known_hosts
+      - name: Prepare SSH known_hosts
         run: |
           mkdir -p ~/.ssh
           touch ~/.ssh/known_hosts
-          if [ "${{ github.ref_name }}" = "develop" ]; then
-            ssh-keyscan -H "${{ secrets.STAGING_HOST }}" >> ~/.ssh/known_hosts
-          else
-            ssh-keyscan -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
-          fi
 
-
-      - name: Deploy - choose target
-        id: target
+      - name: Install sshpass
         run: |
-          if [ "${{ github.ref_name }}" = "develop" ]; then
-            echo "host=${{ secrets.STAGING_HOST }}" >> $GITHUB_OUTPUT
-            echo "user=${{ secrets.STAGING_USER }}" >> $GITHUB_OUTPUT
-            echo "port=${{ secrets.STAGING_PORT }}" >> $GITHUB_OUTPUT
-            echo "path=${{ secrets.STAGING_PATH }}" >> $GITHUB_OUTPUT
-          else
-            echo "host=${{ secrets.PROD_HOST }}" >> $GITHUB_OUTPUT
-            echo "user=${{ secrets.PROD_USER }}" >> $GITHUB_OUTPUT
-            echo "port=${{ secrets.PROD_PORT }}" >> $GITHUB_OUTPUT
-            echo "path=${{ secrets.PROD_PATH }}" >> $GITHUB_OUTPUT
-          fi
+          sudo apt-get update
+          sudo apt-get install -y sshpass
 
-      - name: Write SSH key
-        run: |
-          mkdir -p ~/.ssh
-          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-
-      - name: Debug key fingerprint (safe)
-        run: |
-          echo "Derived public key fingerprint from secret:"
-          ssh-keygen -y -f ~/.ssh/deploy_key | ssh-keygen -lf -
-          echo "Derived public key (first 60 chars):"
-          ssh-keygen -y -f ~/.ssh/deploy_key | head -c 60; echo
-
-
-      - name: Deploy via SSH+SCP (no rsync, no extra actions)
+      - name: Deploy via password SSH+SCP
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
           if [ "${{ github.ref_name }}" = "develop" ]; then
             HOST="${{ secrets.STAGING_HOST }}"
@@ -94,6 +66,12 @@ jobs:
 
           tar -C build_production -czf site.tgz .
 
-          scp -P "$PORT" -i ~/.ssh/deploy_key site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
+          sshpass -p "$SSH_PASSWORD" scp -P "$PORT" \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
 
-          ssh -p "$PORT" -i ~/.ssh/deploy_key "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
+          sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
