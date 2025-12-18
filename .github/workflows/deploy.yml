@@ -49,18 +49,29 @@ jobs:
             ssh-keyscan -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
           fi
 
-      - name: Deploy via rsync
+       - name: Deploy - choose target
+        id: target
         run: |
           if [ "${{ github.ref_name }}" = "develop" ]; then
-            HOST="${{ secrets.STAGING_HOST }}"
-            USER="${{ secrets.STAGING_USER }}"
-            PATH_ON_SERVER="${{ secrets.STAGING_PATH }}"
+            echo "host=${{ secrets.STAGING_HOST }}" >> $GITHUB_OUTPUT
+            echo "user=${{ secrets.STAGING_USER }}" >> $GITHUB_OUTPUT
+            echo "port=${{ secrets.STAGING_PORT }}" >> $GITHUB_OUTPUT
+            echo "path=${{ secrets.STAGING_PATH }}" >> $GITHUB_OUTPUT
           else
-            HOST="${{ secrets.PROD_HOST }}"
-            USER="${{ secrets.PROD_USER }}"
-            PATH_ON_SERVER="${{ secrets.PROD_PATH }}"
+            echo "host=${{ secrets.PROD_HOST }}" >> $GITHUB_OUTPUT
+            echo "user=${{ secrets.PROD_USER }}" >> $GITHUB_OUTPUT
+            echo "port=${{ secrets.PROD_PORT }}" >> $GITHUB_OUTPUT
+            echo "path=${{ secrets.PROD_PATH }}" >> $GITHUB_OUTPUT
           fi
 
-          rsync -az --delete \
-            build_production/ \
-            "${USER}@${HOST}:${PATH_ON_SERVER}/"
+      - name: Deploy via SFTP (no rsync required)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        with:
+          username: ${{ steps.target.outputs.user }}
+          server: ${{ steps.target.outputs.host }}
+          port: ${{ steps.target.outputs.port }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          local_path: "build_production/*"
+          remote_path: ${{ steps.target.outputs.path }}
+          delete_remote_files: true
+          sftp_only: true
