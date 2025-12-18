@@ -17,6 +17,8 @@
         @yield('content')
     </main>
 
+    @include('_includes.callback-form')
+    
     @include('_includes.footer')
     </body>
 </html>
