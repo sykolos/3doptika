@@ -1,26 +1,66 @@
-name: deploy
+name: Build & Deploy (Jigsaw)
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ "develop", "main" ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Install Composer dependencies
-      run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
 
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.2'
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-    
-    - name: Build site with Jigsaw
-      run: ./vendor/bin/jigsaw build production
+      - name: Install PHP deps
+        run: composer install --no-interaction --prefer-dist
 
-      with:
-        personal_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ./build_production
+      - name: Install Node deps
+        run: npm ci
+
+      - name: Build assets (Mix)
+        run: npm run prod
+
+      - name: Build Jigsaw (production)
+        run: ./vendor/bin/jigsaw build production
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add known_hosts
+        run: |
+          if [ "${{ github.ref_name }}" = "develop" ]; then
+            ssh-keyscan -H "${{ secrets.STAGING_HOST }}" >> ~/.ssh/known_hosts
+          else
+            ssh-keyscan -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
+          fi
+
+      - name: Deploy via rsync
+        run: |
+          if [ "${{ github.ref_name }}" = "develop" ]; then
+            HOST="${{ secrets.STAGING_HOST }}"
+            USER="${{ secrets.STAGING_USER }}"
+            PATH_ON_SERVER="${{ secrets.STAGING_PATH }}"
+          else
+            HOST="${{ secrets.PROD_HOST }}"
+            USER="${{ secrets.PROD_USER }}"
+            PATH_ON_SERVER="${{ secrets.PROD_PATH }}"
+          fi
+
+          rsync -az --delete \
+            build_production/ \
+            "${USER}@${HOST}:${PATH_ON_SERVER}/"
