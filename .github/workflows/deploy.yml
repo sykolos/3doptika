@@ -62,14 +62,35 @@ jobs:
             echo "path=${{ secrets.PROD_PATH }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Deploy via SFTP (no rsync required)
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          username: ${{ steps.target.outputs.user }}
-          server: ${{ steps.target.outputs.host }}
-          port: ${{ steps.target.outputs.port }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: "build_production/*"
-          remote_path: ${{ steps.target.outputs.path }}
-          delete_remote_files: true
-          sftp_only: true
+            - name: Write SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Deploy via SSH+SCP (no rsync, no extra actions)
+        run: |
+          if [ "${{ github.ref_name }}" = "develop" ]; then
+            HOST="${{ secrets.STAGING_HOST }}"
+            USER="${{ secrets.STAGING_USER }}"
+            PORT="${{ secrets.STAGING_PORT }}"
+            PATH_ON_SERVER="${{ secrets.STAGING_PATH }}"
+          else
+            HOST="${{ secrets.PROD_HOST }}"
+            USER="${{ secrets.PROD_USER }}"
+            PORT="${{ secrets.PROD_PORT }}"
+            PATH_ON_SERVER="${{ secrets.PROD_PATH }}"
+          fi
+
+          # known_hosts (dinamikusan, ahogy a SO threadben is javasolt)
+          ssh-keyscan -p "$PORT" -H "$HOST" >> ~/.ssh/known_hosts
+
+          # csomagolás (biztosan mindent visz, nem csak a *-ot)
+          tar -C build_production -czf site.tgz .
+
+          # feltöltés
+          scp -P "$PORT" -i ~/.ssh/deploy_key site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
+
+          # kicsomagolás + takarítás a szerveren
+          ssh -p "$PORT" -i ~/.ssh/deploy_key "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
+
