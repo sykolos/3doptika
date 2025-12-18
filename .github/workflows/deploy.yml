@@ -62,16 +62,23 @@ jobs:
             PATH_ON_SERVER="${{ secrets.PROD_PATH }}"
           fi
 
+          mkdir -p ~/.ssh
           ssh-keyscan -p "$PORT" -H "$HOST" >> ~/.ssh/known_hosts
 
           tar -C build_production -czf site.tgz .
 
+          # SCP jelszóval (kulcs tiltva, jelszó preferálva)
           sshpass -p "$SSH_PASSWORD" scp -P "$PORT" \
-            -o BatchMode=yes \
             -o StrictHostKeyChecking=yes \
+            -o PubkeyAuthentication=no \
+            -o PreferredAuthentications=password,keyboard-interactive \
+            -o NumberOfPasswordPrompts=1 \
             site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
 
+          # SSH jelszóval
           sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" \
-            -o BatchMode=yes \
             -o StrictHostKeyChecking=yes \
+            -o PubkeyAuthentication=no \
+            -o PreferredAuthentications=password,keyboard-interactive \
+            -o NumberOfPasswordPrompts=1 \
             "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
