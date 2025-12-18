@@ -49,7 +49,7 @@ jobs:
             ssh-keyscan -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
           fi
 
-       - name: Deploy - choose target
+      - name: Deploy - choose target
         id: target
         run: |
           if [ "${{ github.ref_name }}" = "develop" ]; then
