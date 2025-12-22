@@ -1,7 +1,208 @@
 @extends('_layouts.main')
 
+@section('title', '3D Optika')
+
 @section('content')
-<div class="p-8">
-    <h1 class="text-3xl font-bold">Ez a főoldal</h1>
-</div>
+
+  {{-- HERO --}}
+  <section class="hero" style="--hero-bg:url('{{ $page->baseUrl }}/assets/images/hero.jpg');">
+    
+
+    <div class="container hero__inner">
+      <div class="hero__card">
+        <h1>Ahol a látás<br>élménnyé válik</h1>
+
+        <a class="btn btn--ghost" href="#bemutatkozas">
+          tovább
+          <span class="btn__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  {{-- BEMUTATKOZÁS --}}
+  <section class="about" id="bemutatkozas">
+    <div class="container about__grid">
+      <div class="about__media">
+        <img src="{{ $page->baseUrl }}/assets/images/about.png" alt="3D Optika csapat">
+        <span class="about__fade" aria-hidden="true"></span>
+      </div>
+
+      <div class="about__text">
+        <h2 class="h2">Bemutatkozás</h2>
+        <p>
+          Borocz Mónika vagyok, több mint 40 éve dolgozom az optikában...
+          (ide jön a végleges szöveg)
+        </p>
+        <p>
+          Egy kis, családias optikaként kezdtük, és mára modern műszerekkel várjuk Önt…
+        </p>
+        <p>
+          Látogasson el hozzánk személyesen, és tapasztalja meg, milyen az, amikor a szakértelem és az emberi törődés találkozik!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {{-- MIÉRT VÁLASSZA --}}
+  <section class="reasons">
+    <div class="container reasons__grid">
+      <div class="reasons__left">
+        <h2 class="h2">Miért válassza a 3D Optikát?</h2>
+
+        <ul class="checklist">
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Precíz látásvizsgálat</strong><br>
+              Legmodernebb eszközökkel, pontos mérés és korrekció.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Szakértői konzultáció</strong><br>
+              Magasan képzett optometristáink segítenek dönteni.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Személyre szabott megoldások</strong><br>
+              Életmódhoz és stílushoz illeszkedő optikai ajánlások.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Családias hangulat</strong><br>
+              Barátságos, otthonos környezetben várjuk Önt.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Szemüveg igazítás és tanácsok</strong><br>
+              Megtanítjuk a helyes viselést, ápolást, törlést.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Szemüvegkészítés helyben</strong><br>
+              Saját műhelyünkben készítjük el szemüvegét.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Kiszerviz a helyszínen</strong><br>
+              Elhasználódott otthoni szemüvegkeret csere.
+            </div>
+          </li>
+          <li>
+            <span class="checklist__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Egyedi kollekció</strong><br>
+              Szemüvegkereteinket gondosan, egyesével válogatjuk.
+            </div>
+          </li>
+        </ul>
+
+        <a class="btn btn--primary" href="#visszahivas">
+          visszahívást kérek
+          <span class="btn__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="reasons__right" style="--reasons-bg:url('{{ $page->baseUrl }}/assets/images/store.jpg');">
+        <span class="reasons__overlay" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+
+  {{-- SZOLGÁLTATÁSAINK --}}
+  <section class="services" id="szolgaltatasok">
+    <div class="container">
+      <h2 class="h2">Szolgáltatásaink</h2>
+
+      <div class="service-list">
+        @php
+          $items = [
+            'Optometriai látásvizsgálat – Prolensz technológiával',
+            'Zeiss® | iProfiler Plus – Szemének vizuális lenyomata',
+            'Szemüvegkészítés saját műhelyünkben',
+            'Kontaktlencse-vizsgálat és illesztés',
+            'Glaukóma (zöldhályog) szűrés – Érintésmentes szemnyomásmérés',
+            'Fundusfotó – Szemfenékvizsgálat',
+            'Gyengénlátók segítése – speciális nagyítók és eszközök',
+            'Zeiss Visufit 1000 – 3D technológia a tökéletes lencsékhez',
+          ];
+        @endphp
+
+        @foreach($items as $text)
+          <a class="service-item" href="#">
+            <span class="service-item__text">{{ $text }}</span>
+            <span class="service-item__go" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        @endforeach
+      </div>
+    </div>
+  </section>
+
+
+  {{-- RÓLUNK MONDTÁK --}}
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="h2 testimonials__title">Rólunk mondták</h2>
+
+      <div class="testimonial-card">
+        <button class="t-nav t-nav--left" type="button" aria-label="Előző">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="testimonial-card__content">
+          <p>
+            Régóta járok az optikai szalonba szemüveget készíttetni és vizsgálatra is…
+            (ide jön majd a valós vélemény szöveg)
+          </p>
+          <div class="testimonial-card__name">Dóra László</div>
+
+          <div class="dots" aria-label="Lapozás">
+            <span class="dot dot--active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <button class="t-nav t-nav--right" type="button" aria-label="Következő">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
 @endsection
