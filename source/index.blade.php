@@ -32,9 +32,10 @@
       <a class="btn btn--outline" href="#bemutatkozas">
         tovább
         <span class="btn__icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img src="{{ $page->baseUrl }}/assets/images/icons/down_arrow.svg"
+              alt=""
+              width="16"
+              height="16">
         </span>
       </a>
     </div>
@@ -54,10 +55,13 @@
       <div class="about__text">
         <h2 class="h2">Bemutatkozás</h2>
         <p>
-          Borocz Marika vagyok, több mint 40 éve dolgozom az optikában...
+          Böröcz Mari vagyok, több mint 40 éve dolgozom a szakmában optikus-látszerészként, és 1993 óta optometristaként is segítem pácienseimet. 2013-ban alapítottuk meg a 3D Optikát fiammal, Böröcz Attilával, aki a Semmelweis Egyetemen szerzett diplomát optometrista szakon.
         </p>
         <p>
-          Egy kis, családias optikaként kezdtük, és mára modern műszerekkel várjuk Önt…
+          Egy kis, 40 négyzetméteres üzletből indultunk, ma pedig már egy modern, belvárosi optikai szalonban várjuk Önöket felkészült, tapasztalt csapatunkkal.
+        </p>
+        <p>   
+          Legyen szó látásvizsgálatról, szemüvegkészítésről vagy kontaktlencse-illesztésről, nálunk biztos kezekben van látása.
         </p>
         <p>
           Látogasson el hozzánk személyesen, és tapasztalja meg, milyen az, amikor a szakértelem és az emberi törődés találkozik!
@@ -134,11 +138,7 @@
 
         <a class="btn btn--primary" href="#visszahivas">
           visszahívást kérek
-          <span class="btn__icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+            <img src="/assets/images/icons/phone-outline.svg" alt="">
         </a>
       </div>
 

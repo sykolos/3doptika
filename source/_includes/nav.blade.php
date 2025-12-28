@@ -15,7 +15,7 @@
 
       <a href="#visszahivas" class="site-nav__cta btn btn--primary">
         visszahívást kérek
-        <img src="/assets/images/phone.svg" alt="">
+        <img src="/assets/images/icons/phone-outline.svg" alt="">
       </a>
     </div>
   </div>

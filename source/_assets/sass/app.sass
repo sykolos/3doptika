@@ -8,6 +8,8 @@
 @import "components"
 @import "pages"
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap')
+
 .nav-container
   width: 100%
   background: rgba(255, 255, 255, 0.5)
@@ -47,22 +49,28 @@
    ========================= */
 
 /* ---- Variables ---- */
-$navy: #0b2c4a
-$blue: #0d4f79
-$sky: #78add0
-$text: #1c2b3a
+$navy: #043E6C
+$blue: #327EB0
+$sky: #83BBE0
+$text: #404040
 $muted: #6b7a8a
-$line: rgba(13, 79, 121, 0.18)
+$line: rgba(4, 62, 108, 0.18)
 $card: #ffffff
 $dark: #010101
 
 $radius-sm: 0.8rem
 $radius-lg: 1.6rem
-$radius-xl: 2.4rem
+$radius-xl: 2.8rem
 $radius-nav-btn: 20px
 
 $shadow-soft: 0 10px 30px rgba(10, 35, 55, 0.12)
 $shadow-pill: 0 8px 18px rgba(10, 35, 55, 0.14)
+
+$shadow-white: 0px 0px 46px 5px rgba(255,255,255,0.75)
+$shadow-hover-btn: 12px 12px 22px 10px rgba(4,62,108,0.4)
+
+$font-primary: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif
+
 
 = mq($w)
   @media (max-width: $w)
@@ -77,10 +85,10 @@ html, body
   height: 100%
   margin: 0
   padding: 0
+  font-family: $font-primary
 
 body
   margin: 0
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"
   color: $text
   background: #fff
 
@@ -96,7 +104,7 @@ a
 p
   line-height: 1.7
   margin: 0 0 14px
-  color: $muted
+  color: $text
 
 // .container
 //   width: min(1620px, 100%)
@@ -111,19 +119,24 @@ p
     width: calc(100% - 28px)
 
 .h2
-  font-size: clamp(20px, 2.2vw, 28px)
+  font-size: 2.6em
   color: $blue
+  font-family: $font-primary
   margin: 0 0 18px
+  font-weight: 600
 
 .btn
   display: inline-flex
   align-items: center
-  gap: 10px
+  gap: 20px
   border: 0
   cursor: pointer
-  font-weight: 600
-  letter-spacing: 0.2px
+  font-weight: 400
+  letter-spacing: -2%
+  font-family: $font-primary
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease
+  border-radius: $radius-nav-btn
+  font-size: 1.6em
 
   &__icon
     display: inline-flex
@@ -133,7 +146,6 @@ p
 
 .btn--pill
   padding: 10px 14px
-  border-radius: 999px
   background: rgba(255,255,255,0.75)
   backdrop-filter: blur(10px)
   box-shadow: $shadow-pill
@@ -141,11 +153,16 @@ p
   border: 1px solid rgba(255,255,255,0.55)
 
 .btn--primary
-  padding: 12px 16px
-  border-radius: 999px
+  padding: 16px 30px
   background: $navy
   color: #fff
   box-shadow: $shadow-pill
+  &:hover
+      transform: translateY(-1px)
+      transition-duration: 0.5s
+      box-shadow: $shadow-hover-btn
+      -webkit-box-shadow: $shadow-hover-btn
+      -moz-box-shadow: $shadow-hover-btn
 
 .btn--outline
     background: #fff
@@ -161,8 +178,11 @@ p
       transition: transform .2s ease
 
     &:hover
-      background: rgba(255,255,255,0.22)
       transform: translateY(-1px)
+      transition-duration: 0.1s
+      box-shadow: $shadow-hover-btn
+      -webkit-box-shadow: $shadow-hover-btn
+      -moz-box-shadow: $shadow-hover-btn
 
       svg
         transform: translateX(3px)
@@ -188,9 +208,13 @@ p
   justify-content: space-between
 
   background: rgba(255, 255, 255, 0.65)
-  backdrop-filter: blur(40px)
-  -webkit-backdrop-filter: blur(40px)
-  border-radius: 3.2rem
+  backdrop-filter: blur(11px)
+  -webkit-backdrop-filter: blur(11px)
+  border-radius: $radius-xl
+  box-shadow: $shadow-white
+  -webkit-box-shadow: $shadow-white
+  -moz-box-shadow: $shadow-white
+
 
 .site-nav__right
   display: flex
@@ -217,7 +241,7 @@ p
 .site-nav__cta
   display: inline-flex
   align-items: center
-  gap: .6rem
+  gap: 1.8rem
 
 
   /* mobile toggle */
@@ -334,11 +358,11 @@ p
   color: #fff
   h1
     margin: 0 0 2.4rem
-    font-weight: 800
-    font-size: clamp(32px, 3.5vw, 52px)
+    font-weight: 600
+    font-size: 4.8em
     line-height: 1.05
     color: #fff
-    // text-shadow: 0 0 6px rgba(0, 90, 200, 0.35), 0 0 14px rgba(0, 90, 200, 0.25), 0 6px 22px rgba(0, 0, 0, 0.35)
+    text-shadow: 1px 1px 6px rgba(0, 90, 200, 0.35), 0 0 14px rgba(0, 90, 200, 0.35),0 6px 22px rgba(255, 255, 255, 0.35)
 
 /* =========================
    ABOUT
@@ -350,13 +374,25 @@ p
   &__grid
     display: grid
     grid-template-columns: 1.1fr 0.9fr
-    gap: 6rem
+    gap: 1rem
     align-items: center
 
   &__media
     position: relative
     width: 100%
     border-radius: $radius-xl
+  
+  &__text
+    p
+      margin: 0 0 1rem
+      color: $text
+      font-size: 1.6em
+      letter-spacing: -2%
+      line-height: 22px
+
+      &:last-child
+        font-weight: 600
+        font-style: bold
 
 
   +mq(900px)
@@ -377,6 +413,7 @@ p
   background-repeat: no-repeat
   background-position: right center
   background-size: cover
+  min-height: 85vh
 
   &__grid
     display: grid
@@ -396,7 +433,7 @@ p
     margin-right: calc(50% - 50vw)
   
   &__left
-    padding-left: 12px
+    padding-left: 1rem
 
   &__overlay
     position: absolute
@@ -408,27 +445,27 @@ p
     padding: 0
     margin: 0 0 18px
     display: grid
-    gap: 10px
+    gap: 1.6rem
 
     li
       display: grid
       grid-template-columns: 18px 1fr
-      gap: 10px
+      gap: 2rem
       align-items: start
-      font-size: 14px
+      font-size: 1.6em
       color: $muted
 
       strong
         color: $text
 
     &__icon
-      width: 25px
-      height: 25px
-      margin-top: -3px
+      width: 35px
+      height: 35px
+      margin-top: 5px
       border-radius: 999px
       background-color: $blue
-      mask: url('/assets/images/icons/listicon.svg') center / 16px no-repeat
-      -webkit-mask: url('/assets/images/icons/listicon.svg') center / 16px no-repeat
+      mask: url('/assets/images/icons/listicon.svg') center / 25px no-repeat
+      -webkit-mask: url('/assets/images/icons/listicon.svg') center / 25px no-repeat
 
   +mq(980px)
     &__grid
@@ -458,22 +495,23 @@ p
   align-items: center
   justify-content: space-between
   gap: 2.4rem
-
-  padding: 2.6rem 3.2rem
+  min-height: 10rem
+  padding: 2.6rem
   border-radius: $radius-nav-btn
 
   background: #fff
   border: 1px solid rgba(13,79,121,0.12)
-  box-shadow: 0 20px 60px rgba(13,79,121,0.08)
+  box-shadow: 0 20px 60px rgba(13,79,121,0.1)
 
   text-decoration: none
   transition: transform .25s ease, box-shadow .25s ease
 
   &__text
     color: $blue
-    font-weight: 600
+    font-weight: 400
     line-height: 1.35
     max-width: 85%     // ne fusson rá az ikonra
+    font-size: 2em
 
   &__go
     width: 54px
@@ -490,14 +528,9 @@ p
     flex: 0 0 auto
 
     transition: background .2s ease, color .2s ease
-
-  &:hover
-    transform: translateY(-2px)
-    box-shadow: 0 28px 70px rgba(13,79,121,0.14)
-
-    .service-item__go
-      box-shadow: 0 10px 10px rgba(13, 79, 121, 0.14)
-
+    &:hover
+      box-shadow: $shadow-hover-btn
+      
 
 
 /* =========================
