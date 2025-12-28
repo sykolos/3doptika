@@ -5,39 +5,56 @@
 @section('content')
 
   {{-- HERO --}}
-  <section class="hero" style="--hero-bg:url('{{ $page->baseUrl }}/assets/images/hero.jpg');">
-    
+  <section class="hero">
 
-    <div class="container hero__inner">
-      <div class="hero__card">
-        <h1>Ahol a látás<br>élménnyé válik</h1>
+  <div class="hero__bg">
+  <video
+    class="hero__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="{{ $page->baseUrl }}/assets/images/hero.jpg"
+    aria-hidden="true"
+  >
+    <source src="{{ $page->baseUrl }}/assets/vid/hero.mp4" type="video/mp4">
+  </video>
+</div>
 
-        <a class="btn btn--ghost" href="#bemutatkozas">
-          tovább
-          <span class="btn__icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-      </div>
+
+  <div class="hero__overlay"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__card">
+      <h1>Ahol a látás<br>élménnyé válik</h1>
+
+      <a class="btn btn--outline" href="#bemutatkozas">
+        tovább
+        <span class="btn__icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
     </div>
-  </section>
+  </div>
+
+</section>
+
 
 
   {{-- BEMUTATKOZÁS --}}
   <section class="about" id="bemutatkozas">
     <div class="container about__grid">
       <div class="about__media">
-        <img src="{{ $page->baseUrl }}/assets/images/about.png" alt="3D Optika csapat">
-        <span class="about__fade" aria-hidden="true"></span>
+        <img src="{{ $page->baseUrl }}/assets/images/index/home-portrait-min.jpg" alt="3D Optika csapat">
       </div>
 
       <div class="about__text">
         <h2 class="h2">Bemutatkozás</h2>
         <p>
-          Borocz Mónika vagyok, több mint 40 éve dolgozom az optikában...
-          (ide jön a végleges szöveg)
+          Borocz Marika vagyok, több mint 40 éve dolgozom az optikában...
         </p>
         <p>
           Egy kis, családias optikaként kezdtük, és mára modern műszerekkel várjuk Önt…
@@ -125,8 +142,7 @@
         </a>
       </div>
 
-      <div class="reasons__right" style="--reasons-bg:url('{{ $page->baseUrl }}/assets/images/store.jpg');">
-        <span class="reasons__overlay" aria-hidden="true"></span>
+      {{-- <div class="reasons__right" style="--reasons-bg:url('{{ $page->baseUrl }}/assets/images/index/shop-interrieur-min.jpg');"> --}}
       </div>
     </div>
   </section>
@@ -155,8 +171,8 @@
           <a class="service-item" href="#">
             <span class="service-item__text">{{ $text }}</span>
             <span class="service-item__go" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
           </a>
@@ -173,8 +189,8 @@
 
       <div class="testimonial-card">
         <button class="t-nav t-nav--left" type="button" aria-label="Előző">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
@@ -195,8 +211,8 @@
         </div>
 
         <button class="t-nav t-nav--right" type="button" aria-label="Következő">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
