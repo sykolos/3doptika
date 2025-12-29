@@ -6,13 +6,13 @@
 
 <section class="aboutPage">
   <div class="container">
-    <h1 class="aboutPage__title">Rólunk</h1>
+    <h1 class="page-title">Rólunk</h1>
 
     <div class="aboutIntro">
       <div class="aboutIntro__media">
         <img
           class="aboutIntro__img"
-          src="{{ $page->baseUrl }}/assets/images/about/rolunk-hero.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Mari-Ati-min.jpg"
           alt="A 3D Optika csapata az üzletben"
           loading="lazy"
         >
@@ -46,14 +46,14 @@
 
 <section class="team">
   <div class="container">
-    <h2 class="team__title">Csapatunk</h2>
+    <h2 class="h2">Csapatunk</h2>
 
     <div class="teamGrid">
 
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/mari.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Anya-min.jpg"
           alt="Mari – optometrista-látszerész"
           loading="lazy"
         >
@@ -64,7 +64,7 @@
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/attila.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Ati-min.jpg"
           alt="Attila – optometrista-kontaktológus"
           loading="lazy"
         >
@@ -75,7 +75,7 @@
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/fanni.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Fanni-min.jpg"
           alt="Fanni – optikus"
           loading="lazy"
         >
@@ -86,7 +86,7 @@
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/bobe.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Bobe-min.jpg"
           alt="Böbe – optikus"
           loading="lazy"
         >
@@ -97,7 +97,7 @@
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/agi.jpg"
+          src="{{ $page->baseUrl }}/assets/images/team/Agi-min.jpg"
           alt="Ági – optikus"
           loading="lazy"
         >

@@ -5,34 +5,28 @@
     <form class="callback__form" action="#" method="post">
       <div class="formGrid">
         <div class="field">
-          <label for="last">Vezetéknév*</label>
-          <input id="last" name="last_name" type="text" required>
+          <input id="last" name="last_name" type="text" placeholder="Vezetéknév*" required>
         </div>
 
         <div class="field">
-          <label for="first">Keresztnév*</label>
-          <input id="first" name="first_name" type="text" required>
+          <input id="first" name="first_name" type="text" placeholder="Keresztnév*" required>
         </div>
 
         <div class="field">
-          <label for="phone">Telefonszám*</label>
-          <input id="phone" name="phone" type="tel" required>
+          <input id="phone" name="phone" type="tel" placeholder="Telefonszám*" required>
         </div>
 
         <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email">
+          <input id="email" name="email" type="email" placeholder="Email">
         </div>
       </div>
 
       <div class="field">
-        <label for="service">Melyik szolgáltatásunk érdekli?</label>
-        <input id="service" name="service" type="text">
+        <input id="service" name="service" type="text" placeholder="Melyik szolgáltatásunk érdekli?">
       </div>
 
       <div class="field">
-        <label for="msg">Üzenet</label>
-        <textarea id="msg" name="message" rows="6"></textarea>
+        <textarea id="msg" name="message" rows="6" placeholder="Üzenet"></textarea>
       </div>
 
       <label class="consent">

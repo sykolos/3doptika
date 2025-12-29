@@ -171,8 +171,8 @@
           <a class="service-item" href="#">
             <span class="service-item__text">{{ $text }}</span>
             <span class="service-item__go" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18l6-6-6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
           </a>
@@ -189,15 +189,14 @@
 
       <div class="testimonial-card">
         <button class="t-nav t-nav--left" type="button" aria-label="Előző">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
         <div class="testimonial-card__content">
           <p>
-            Régóta járok az optikai szalonba szemüveget készíttetni és vizsgálatra is…
-            (ide jön majd a valós vélemény szöveg)
+            Régóta járok az optikai szalonba szemüveget készíttetni és vizsgálatra is! Proffesszionális vizsgálóeszközök megtámogatva magas szinvonalú szakmai tudással.Családias, kedves hangulat tölti be a helyet. A vizsgálat diszkrét, nyugodt környezetben zajlik. Nem is vizsgálat, hanem egy stratégia felépítèse folyik. Annyi minden szempontot kell figyelembe venni, hogy a végén már a páciens is úgy érzi, hogy ő is egy kicsit ért ehhez. Ez a vizsgálat alatt közérthető nyelven kapott információknak köszönhető. Egyszer, akinek szüksége van szemüvegre, mindenképpen próbálja ki! Legyen viszonyítási alapja, hogy mi a különbség szalon és szalon között!Köszönöm, hogy szerda késő délután ismét maximális elégedettséggel távozhattam tőletek!Nekem ez nagyon fontos, hiszen a látásom munka és vezetés közben a biztonságomat és mások biztonságát jelenti!
           </p>
           <div class="testimonial-card__name">Dóra László</div>
 
@@ -211,8 +210,8 @@
         </div>
 
         <button class="t-nav t-nav--right" type="button" aria-label="Következő">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="#0b2c4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>

@@ -62,6 +62,7 @@ $radius-sm: 0.8rem
 $radius-lg: 1.6rem
 $radius-xl: 2.8rem
 $radius-nav-btn: 20px
+$line-height: 1.8rem
 
 $shadow-soft: 0 10px 30px rgba(10, 35, 55, 0.12)
 $shadow-pill: 0 8px 18px rgba(10, 35, 55, 0.14)
@@ -102,7 +103,7 @@ a
   text-decoration: none
 
 p
-  line-height: 1.7
+  line-height: $line-height
   margin: 0 0 14px
   color: $text
 
@@ -124,6 +125,13 @@ p
   font-family: $font-primary
   margin: 0 0 18px
   font-weight: 600
+
+.page-title
+  font-size: 5em
+  color: $navy
+  letter-spacing: -2%
+  font-family: $font-primary
+  font-weight: 400
 
 .btn
   display: inline-flex
@@ -159,7 +167,7 @@ p
   box-shadow: $shadow-pill
   &:hover
       transform: translateY(-1px)
-      transition-duration: 0.5s
+      transition-duration: 1s
       box-shadow: $shadow-hover-btn
       -webkit-box-shadow: $shadow-hover-btn
       -moz-box-shadow: $shadow-hover-btn
@@ -171,15 +179,15 @@ p
     backdrop-filter: blur(6px)
     box-shadow: 0 0 0 rgba(0,0,0,0)
     border-radius: $radius-nav-btn
-    padding: 1.2rem 3.2rem
+    padding: 1rem 6.8rem
     font-size: 1.8em
 
     svg
       transition: transform .2s ease
 
     &:hover
-      transform: translateY(-1px)
-      transition-duration: 0.1s
+      transform: translateY(-0.5px)
+      transition-duration: 1s
       box-shadow: $shadow-hover-btn
       -webkit-box-shadow: $shadow-hover-btn
       -moz-box-shadow: $shadow-hover-btn
@@ -223,16 +231,16 @@ p
 
 .site-nav__menu
   display: flex
-  gap: 4rem
+  gap: 2.8rem
   list-style: none
   margin: 0
   padding: 0
 
   a
     text-decoration: none
-    font-size: 1.4rem
-    font-weight: 500
-    color: #001c54
+    font-size: 1.6rem
+    font-weight: 400
+    color: $blue
     opacity: .85
 
   a:hover
@@ -392,7 +400,7 @@ p
 
       &:last-child
         font-weight: 600
-        font-style: bold
+        font-style: semibold
 
 
   +mq(900px)
@@ -443,7 +451,7 @@ p
   .checklist
     list-style: none
     padding: 0
-    margin: 0 0 18px
+    margin: 0 0 4rem
     display: grid
     gap: 1.6rem
 
@@ -453,19 +461,20 @@ p
       gap: 2rem
       align-items: start
       font-size: 1.6em
-      color: $muted
+      line-height: $line-height
 
       strong
         color: $text
+        font-weight: 600
 
     &__icon
       width: 35px
       height: 35px
       margin-top: 5px
       border-radius: 999px
-      background-color: $blue
-      mask: url('/assets/images/icons/listicon.svg') center / 25px no-repeat
-      -webkit-mask: url('/assets/images/icons/listicon.svg') center / 25px no-repeat
+      background-color: $navy
+      mask: url('/assets/images/icons/listicon.svg') center / 28px no-repeat
+      -webkit-mask: url('/assets/images/icons/listicon.svg') center / 28px no-repeat
 
   +mq(980px)
     &__grid
@@ -500,7 +509,6 @@ p
   border-radius: $radius-nav-btn
 
   background: #fff
-  border: 1px solid rgba(13,79,121,0.12)
   box-shadow: 0 20px 60px rgba(13,79,121,0.1)
 
   text-decoration: none
@@ -522,12 +530,11 @@ p
     align-items: center
     justify-content: center
 
-    border: 2px solid $blue
-    color: $blue
+    border: 2px solid $navy
+    color: $navy
     background: transparent
     flex: 0 0 auto
 
-    transition: background .2s ease, color .2s ease
     &:hover
       box-shadow: $shadow-hover-btn
       
@@ -545,25 +552,26 @@ p
   .testimonial-card
     margin-top: 18px
     position: relative
-    // border-radius: $radius-sm
-    // border: 1px solid rgba(13,79,121,0.12)
-    // background: rgba(255,255,255,0.9)
-    // box-shadow: 0 14px 36px rgba(10,35,55,0.08)
     padding: 26px 54px
     text-align: center
 
   .testimonial-card__content
-    max-width: 760px
-    margin: 0 auto
+    margin: 0 2.4rem
 
     p
-      color: $muted
+      color: $text
       margin-bottom: 14px
+      line-height: 26px
+      font-size: 1.8em
+      letter-spacing: -2%
+
 
   .testimonial-card__name
-    font-weight: 700
+    font-weight: 600
     color: $text
+    font-size: 1.8em
     margin-top: 6px
+    letter-spacing: -2%
 
   .t-nav
     position: absolute
@@ -618,15 +626,15 @@ p
 
   &__title
     color: #fff
+    font-size: 2.6em
     margin: 0 0 18px
-    font-size: clamp(22px, 2.4vw, 30px)
-    font-weight: 800
+    font-weight: 600
 
   .formGrid
     display: grid
     grid-template-columns: 1fr 1fr
-    gap: 14px 18px
-    margin-bottom: 14px
+    gap: 3.4rem
+    margin-bottom: 3.4rem
 
   .field
     display: grid
@@ -641,16 +649,26 @@ p
       width: 100%
       border: 0
       outline: none
-      padding: 12px 12px
-      border-radius: 12px
+      padding: 1.2rem
+      padding-left: 1.6rem
+      border-radius: $radius-nav-btn
       background: rgba(255,255,255,0.95)
       box-shadow: 0 10px 22px rgba(10,35,55,0.10)
-      color: $text
-      font-size: 14px
+      color: $navy
+      font-size: 1.4em
+      font-family: $font-primary
+
+
+      &::placeholder
+        color:$navy
+        font-family: $font-primary
+        font-weight: 400
+        letter-spacing: -2%
 
     textarea
       resize: vertical
       min-height: 120px
+      margin-top: 3.4rem
 
   .consent
     display: flex
@@ -659,18 +677,40 @@ p
     justify-content: center
     margin: 14px 0 18px
     color: rgba(255,255,255,0.95)
-    font-size: 12px
+    font-size: 1.6rem
+    line-height: 32px
 
-    input
-      width: 16px
-      height: 16px
+    input[type="checkbox"]
+      appearance: none
+      -webkit-appearance: none
+      -moz-appearance: none
+      width: 25px
+      height: 25px
+      border: none
+      border-radius: 8px
+      background: #fff
+      cursor: pointer
+      position: relative
+
+      &:checked
+        background: #001c54
+
+        &::after
+          content: "✓"
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -55%)
+          color: #fff
+          font-size: 16px
+          font-weight: 700
 
   &__actions
     display: flex
     justify-content: center
 
   .btn--wide
-    padding: 12px 42px
+    padding: 1rem 12rem
 
   +mq(860px)
     .formGrid
@@ -682,7 +722,7 @@ p
 
 .footer
   background: $dark
-  padding: 1.6rem 18rem 0 0
+  padding: 1.6rem 18rem 1.6rem 1.6rem
 
 .footer__inner
   display: flex
@@ -812,7 +852,7 @@ p
    ========================= */
 
 .aboutPage
-  padding: 44px 0 22px
+  padding: 14rem 6.4rem
   background: #fff
 
   &__title
@@ -823,62 +863,66 @@ p
 
 .aboutIntro
   display: grid
-  grid-template-columns: 320px 1fr
-  gap: 28px
-  align-items: start
+  grid-template-columns: 420px 1fr
+  gap: 56px
+  align-items: center
+  max-width: 1450px
+  margin: 0 auto
 
-  &__media
-    border-radius: 18px
+  .aboutIntro__media
+    width: 450px
+    height: 450px
+    border-radius: 8px
     overflow: hidden
-    box-shadow: 0 14px 36px rgba(10, 35, 55, 0.10)
+    box-shadow: 0 24px 40px rgba(10, 35, 55, 0.1)
     background: #fff
 
-  &__img
+  .aboutIntro__img
     width: 100%
-    aspect-ratio: 1 / 1
+    height: 100%
     object-fit: cover
+    object-position: center
     display: block
+
 
   &__text
     p
-      margin: 0 0 12px
-      color: $muted
-      font-size: 13px
-      line-height: 1.7
+      margin: 0 0 18px
+      color: $text
+      font-size: 1.6em
+      line-height: $line-height
 
   &__highlight
-    margin-top: 10px
-    color: $text !important
-    font-weight: 700
+    margin-top: 20px
+    font-weight: 600
 
   +mq(900px)
-    grid-template-columns: 260px 1fr
-    gap: 22px
+    grid-template-columns: 320px 1fr
+    gap: 36px
 
   +mq(720px)
     grid-template-columns: 1fr
-    gap: 16px
+    gap: 22px
 
     &__img
       aspect-ratio: 16 / 10
 
 
+
 .team
-  padding: 18px 0 50px
+  padding: 80px 0 60px
   background: #fff
 
-  &__title
+  .h2
+    margin-bottom: 40px
     text-align: center
-    color: $blue
-    font-weight: 800
-    margin: 0 0 22px
-    font-size: 16px
 
 .teamGrid
   display: grid
   grid-template-columns: repeat(2, 1fr)
   gap: 26px
   justify-items: center
+  padding: 0 6.4rem
 
   +mq(980px)
     gap: 18px
@@ -895,26 +939,35 @@ p
     width: 100%
     height: auto
     display: block
+    margin: 0 auto
     border-radius: 18px
-    box-shadow: 0 16px 40px rgba(10, 35, 55, 0.14)
+    box-shadow: 0 16px 40px rgba(10, 35, 55, 0.1)
     background: #fff
+    max-width: 400px
 
   &__name
-    margin-top: 10px
+    margin-top: 14px
     text-align: center
-    color: $blue
-    font-weight: 700
-    font-size: 13px
+    color: $navy
+    font-weight: 400
+    font-size: 1.6em
+    line-height: $line-height
+    letter-spacing: -2%
 
   &__role
     text-align: center
-    color: #1a1a1a
-    font-size: 11px
+    color: #4a4a4a
+    font-size: 1.6em
+    letter-spacing: -2%
+    font-weight: 400
 
 /* A screenshot alapján: alul 3 kártya szépen egymás mellett desktopon */
 @media (min-width: 980px)
   .teamGrid
     grid-template-columns: repeat(6, 1fr)
+    gap: 40px
+    max-width: 1450px
+    margin: 0 auto
 
   .teamCard
     width: 100%
@@ -927,6 +980,7 @@ p
   .teamCard:nth-child(4),
   .teamCard:nth-child(5)
     grid-column: span 2
+
 
   /* =========================
    KAPCSOLAT oldal
@@ -994,33 +1048,23 @@ p
   border: 1px solid rgba(13,79,121,0.12)
   box-shadow: 0 14px 36px rgba(10, 35, 55, 0.10)
   background: #fff
-  min-height: 150px
+  position: relative
+  width: 100%
+  height: 220px
 
-  &__placeholder
-    height: 150px
-    display: grid
-    place-items: center
-    background: linear-gradient(180deg, rgba(13,79,121,0.06), rgba(13,79,121,0.03))
+  @media (min-width: 768px)
+    height: 260px
 
-  &__text
-    color: $blue
-    font-weight: 700
-    font-size: 13px
-    opacity: 0.9
+  @media (min-width: 1200px)
+    height: 300px
 
-  &__pin
-    width: 18px
-    height: 18px
-    border-radius: 999px
-    background: rgba(13,79,121,0.15)
-    border: 2px solid rgba(13,79,121,0.25)
-    margin-bottom: 10px
-
-  &__iframe
+  iframe
     width: 100%
-    height: 150px
+    height: 100%
     border: 0
-    display: block
+    position: absolute
+    inset: 0
+
 
 
 .contactHero
