@@ -17,7 +17,7 @@
   preload="metadata"
   poster="/assets/img/3doptika_front.jpg"
 >
-  <source src="/assets/vid/hero-final.webm" type="video/webm">
+  <source src="/assets/vid/hero-final.mp4" type="video/mp4">
 </video>
 
 </div>
