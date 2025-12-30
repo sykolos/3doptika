@@ -1,6 +1,7 @@
 {
     "require": {
         "tightenco/jigsaw": "^1.7",
-        "symfony/yaml": "^7.4"
+        "symfony/yaml": "^7.4",
+        "phpmailer/phpmailer": "^7.0"
     }
 }

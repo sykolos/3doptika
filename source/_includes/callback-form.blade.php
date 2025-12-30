@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="callback__title">Kérje visszahívásunkat!</h2>
 
-    <form class="callback__form" action="#" method="post">
+    <form class="callback__form" action="/api/quote/send.php" method="post">
       <div class="formGrid">
         <div class="field">
           <input id="last" name="last_name" type="text" placeholder="Vezetéknév*" required>
@@ -30,7 +30,7 @@
       </div>
 
       <label class="consent">
-        <input type="checkbox" required>
+        <input type="checkbox" name="consent" value="1" required>
         <span>Elfogadom az adatkezelési nyilatkozatot*</span>
       </label>
 
