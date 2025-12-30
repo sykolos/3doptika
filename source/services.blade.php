@@ -5,7 +5,7 @@
 @section('content')
 <section class="pageHead">
   <div class="container">
-    <h1 class="pageHead__title">Szolgáltatásaink</h1>
+    <h1 class="page-title">Szolgáltatásaink</h1>
   </div>
 </section>
 
@@ -75,29 +75,57 @@
 
 <section class="brands">
   <div class="container">
-    <h2 class="brands__title">Forgalmazott márkáink</h2>
+    <h2 class="h2 brand-title">Forgalmazott márkáink</h2>
 
     <div class="brandGrid">
-      {{-- Tipp: tedd a logókat ide: source/assets/images/brands/ --}}
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/zeiss.png" alt="ZEISS logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/coopervision.png" alt="CooperVision logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/rudy-project.png" alt="Rudy Project logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/silhouette.png" alt="Silhouette logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/jaguar.png" alt="Jaguar Eyewear logó">
-
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/titanflex.png" alt="Titanflex logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/oakley.png" alt="Oakley logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/ray-ban.png" alt="Ray-Ban logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/carrera.png" alt="Carrera logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/hugo.png" alt="HUGO logó">
-
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/boss.png" alt="BOSS logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/tommy-hilfiger.png" alt="Tommy Hilfiger logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/centrostyle.png" alt="Centrostyle logó">
-
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/missoni.png" alt="Missoni logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/moschino.png" alt="Moschino logó">
-      <img class="brandGrid__img" src="{{ $page->baseUrl }}/assets/images/brands/carolina-herrera.png" alt="Carolina Herrera logó">
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/zeiss.svg" alt="ZEISS logó">
+      </div>
+      <div class="brandGrid__item">
+       <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/cooper.svg" alt="CooperVision logó">
+      </div>
+      <div class="brandGrid__item"> 
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/rudy.svg" alt="Rudy Project logó">
+      </div>
+      <div class="brandGrid__item">
+       <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/silhouette.svg" alt="Silhouette logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/jaguar.svg" alt="Jaguar Eyewear logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/titanflex.svg" alt="Titanflex logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/oakley.svg" alt="Oakley logó">      
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/rayban.svg" alt="Ray-Ban logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/carrera.svg" alt="Carrera logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/hugo.svg" alt="HUGO logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/boss.svg" alt="BOSS logó">
+      </div>
+      <div class="brandGrid__item">
+       <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/tommy.svg" alt="Tommy Hilfiger logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/centro.svg" alt="Centrostyle logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/missoni.svg" alt="Missoni logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/moschino.svg" alt="Moschino logó">
+      </div>
+      <div class="brandGrid__item">
+        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/ch.svg" alt="Carolina Herrera logó">
+      </div>
     </div>
   </div>
 </section>

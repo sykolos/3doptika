@@ -6,32 +6,43 @@
 
 <section class="contactPage">
   <div class="container">
-    <h1 class="contactPage__title">Kapcsolat</h1>
+    <h1 class="page-title">Kapcsolat</h1>
 
     <div class="contactTop">
       <div class="contactInfo" aria-label="Kapcsolati adatok">
-        <div class="contactInfo__row">
-          <span class="contactInfo__icon" aria-hidden="true">📍</span>
-          <div class="contactInfo__text">
-            2600 Vác,<br>
-            Dr. Csányi László körút 42.
-          </div>
-        </div>
+  <div class="contactInfo__row">
+    <span class="contactInfo__icon" aria-hidden="true">
+      <img src="/assets/images/icons/map.svg" alt="">
+    </span>
+    <div class="contactInfo__text">
+      2600 Vác,<br>
+      Dr. Csányi László körút 42.
+    </div>
+  </div>
 
-        <div class="contactInfo__row">
-          <span class="contactInfo__icon" aria-hidden="true">✉️</span>
-          <div class="contactInfo__text">
-            <a class="contactInfo__link" href="mailto:info@3doptika.hu">info@3doptika.hu</a>
-          </div>
-        </div>
+  <div class="contactInfo__row">
+    <span class="contactInfo__icon" aria-hidden="true">
+      <img src="/assets/images/icons/email.svg" alt="">
+    </span>
+    <div class="contactInfo__text">
+      <a class="contactInfo__link" href="mailto:info@3doptika.hu">
+        info@3doptika.hu
+      </a>
+    </div>
+  </div>
 
-        <div class="contactInfo__row">
-          <span class="contactInfo__icon" aria-hidden="true">📞</span>
-          <div class="contactInfo__text">
-            <a class="contactInfo__link" href="tel:+36304285041">+36 30 428 50 41</a>
-          </div>
-        </div>
-      </div>
+  <div class="contactInfo__row">
+    <span class="contactInfo__icon" aria-hidden="true">
+      <img src="/assets/images/icons/phone.svg" alt="">
+    </span>
+    <div class="contactInfo__text">
+      <a class="contactInfo__link" href="tel:+36304285041">
+        +36 30 428 50 41
+      </a>
+    </div>
+  </div>
+</div>
+
 
       {{-- MAP PLACEHOLDER – később csere Google Maps iframe-re --}}
       <div class="mapBox" aria-label="Térkép">
@@ -54,19 +65,19 @@
 </section>
 
 
-<section class="contactHero" style="--contact-bg:url('{{ $page->baseUrl }}/assets/images/contact/hero.jpg');">
+<section class="contactHero" style="--contact-bg:url('{{ $page->baseUrl }}/assets/images/3doptika_front.jpg');">
   <div class="container contactHero__inner">
     <div class="hoursCard" aria-label="Nyitvatartás">
-      <h2 class="hoursCard__title">Nyitvatartás</h2>
+      <h2 class="h2">Nyitvatartás</h2>
 
       <div class="hoursGrid">
-        <div class="hoursRow"><span>hétfő:</span><strong>zárva</strong></div>
-        <div class="hoursRow"><span>kedd:</span><strong>9:00–17:30</strong></div>
-        <div class="hoursRow"><span>szerda:</span><strong>9:00–17:30</strong></div>
-        <div class="hoursRow"><span>csütörtök:</span><strong>9:00–17:30</strong></div>
-        <div class="hoursRow"><span>péntek:</span><strong>9:00–17:30</strong></div>
-        <div class="hoursRow"><span>szombat:</span><strong>8–12</strong></div>
-        <div class="hoursRow"><span>vasárnap:</span><strong>zárva</strong></div>
+        <div class="hoursRow"><span>hétfő:</span>zárva</div>
+        <div class="hoursRow"><span>kedd:</span>9:00–17:30</div>
+        <div class="hoursRow"><span>szerda:</span>9:00–17:30</div>
+        <div class="hoursRow"><span>csütörtök:</span>9:00–17:30</div>
+        <div class="hoursRow"><span>péntek:</span>9:00–17:30</div>
+        <div class="hoursRow"><span>szombat:</span>8–12</div>
+        <div class="hoursRow"><span>vasárnap:</span>zárva</div>
       </div>
     </div>
   </div>
@@ -75,6 +86,7 @@
 
 <section class="cardPay">
   <div class="container">
+    
     <h2 class="cardPay__title">Kártyás fizetési lehetőség!</h2>
 
     <p class="cardPay__lead">Egészségpénztári kártyás elfogadóhely:</p>
@@ -83,9 +95,8 @@
       <li>Prémium</li>
       <li>MBH</li>
       <li>Patika / Új Pillér</li>
+      <li class="cardPay__note">Az összes többi egészségpénztárnak számlát állítunk ki!</li>
     </ul>
-
-    <p class="cardPay__note">Az összes többi egészségpénztárnak számlát állítunk ki!</p>
   </div>
 </section>
 

@@ -9,17 +9,17 @@
 
   <div class="hero__bg">
   <video
-    class="hero__video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="{{ $page->baseUrl }}/assets/images/hero.jpg"
-    aria-hidden="true"
-  >
-    <source src="{{ $page->baseUrl }}/assets/vid/hero.mp4" type="video/mp4">
-  </video>
+  class="heroVideo"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+>
+  <source src="/assets/vid/hero-final.webm" type="video/webm">
+  <source src="/assets/vid/hero-final.mp4" type="video/mp4">
+</video>
+
 </div>
 
 

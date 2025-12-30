@@ -7,4 +7,5 @@ return [
     'siteName'=>getenv('SITE_NAME'),
     'description' => 'Website description.',
     'collections' => [],
+    'faq' => \Symfony\Component\Yaml\Yaml::parseFile(__DIR__ . '/source/_data/faq.yaml'),
 ];

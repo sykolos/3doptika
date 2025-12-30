@@ -6,11 +6,11 @@
 
     <div class="site-nav__right">
       <ul class="site-nav__menu">
-        <li><a href="#">rólunk</a></li>
-        <li><a href="#">szolgáltatásaink</a></li>
+        <li><a href="/about">rólunk</a></li>
+        <li><a href="/services">szolgáltatásaink</a></li>
         <li><a href="#">blog</a></li>
-        <li><a href="#">GYIK</a></li>
-        <li><a href="#">kapcsolat</a></li>
+        <li><a href="/gyik">GYIK</a></li>
+        <li><a href="/contact">kapcsolat</a></li>
       </ul>
 
       <a href="#visszahivas" class="site-nav__cta btn btn--primary">
