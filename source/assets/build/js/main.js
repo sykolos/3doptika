@@ -1,72 +1,42 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./source/_assets/js/hero-video.js"
-/*!*****************************************!*\
-  !*** ./source/_assets/js/hero-video.js ***!
-  \*****************************************/
-() {
-
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-document.addEventListener("DOMContentLoaded", function () {
-  var video = document.querySelector(".hero__video");
-  if (!video) return;
-
-  // autoplay próbálkozás
-  var playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise["catch"](function () {
-      video.pause();
-    });
-  }
-
-  // kattintásra play / pause
-  var hero = document.querySelector(".hero");
-  if (hero) {
-    hero.addEventListener("click", function () {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  }
-
-  // 🔹 PERFORMANCE: ha nincs képernyőn, álljon le
-  if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 1),
-        entry = _ref2[0];
-      if (entry.isIntersecting) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }, {
-      threshold: 0.2
-    });
-    observer.observe(video);
-  }
-});
-
-/***/ },
-
 /***/ "./source/_assets/js/main.js"
 /*!***********************************!*\
   !*** ./source/_assets/js/main.js ***!
   \***********************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+() {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _hero_video__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-video */ "./source/_assets/js/hero-video.js");
-/* harmony import */ var _hero_video__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hero_video__WEBPACK_IMPORTED_MODULE_0__);
+var mobileNav = document.querySelector('.mobile-nav');
+var menu = document.querySelector('#mobile-menu');
+var toggle = document.querySelector('.mobile-nav__toggle');
+if (mobileNav && menu && toggle) {
+  menu.removeAttribute('hidden');
+  var open = false;
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    open = !open;
+    toggle.setAttribute('aria-expanded', open);
+    toggle.classList.toggle('is-open', open);
+    mobileNav.classList.toggle('mobile-nav--open', open);
+    document.body.classList.toggle('is-nav-open', open);
+    if (open) {
+      var firstLink = mobileNav.querySelector('.mobile-nav__item a');
+      firstLink === null || firstLink === void 0 || firstLink.focus();
+    }
+  });
 
+  // 🔥 bármely link bezárja a menüt
+  var navLinks = mobileNav.querySelectorAll('a');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      open = false;
+      mobileNav.classList.remove('mobile-nav--open');
+      document.body.classList.remove('is-nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 /***/ },
 
@@ -148,30 +118,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	
