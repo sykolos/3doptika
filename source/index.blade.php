@@ -48,13 +48,13 @@
   {{-- BEMUTATKOZÁS --}}
   <section class="about" id="bemutatkozas">
     <div class="container about__grid">
-      <h2 class="h2">Bemutatkozás</h2>
+      
       <div class="about__media">
         <img src="{{ $page->baseUrl }}/assets/images/index/home-portrait-min.jpg" alt="3D Optika csapat">
       </div>
 
       <div class="about__text">
-        
+        <h2 class="h2">Bemutatkozás</h2>
         <p>
           Böröcz Mari vagyok, több mint 40 éve dolgozom a szakmában optikus-látszerészként, és 1993 óta optometristaként is segítem pácienseimet. 2013-ban alapítottuk meg a 3D Optikát fiammal, Böröcz Attilával, aki a Semmelweis Egyetemen szerzett diplomát optometrista szakon.
         </p>
@@ -74,8 +74,8 @@
 
   {{-- MIÉRT VÁLASSZA --}}
   <section class="reasons">
-    <div class="container reasons__grid">
       <h2 class="h2">Miért válassza a 3D Optikát?</h2>
+    <div class="container reasons__grid">
       <div class="reasons__left">
         
 
