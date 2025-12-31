@@ -1,8 +1,20 @@
-- q: "Mi az a rövidlátás (myopia)?"
-  a: "A rövidlátás során a távoli tárgyak homályosak, mert a kép nem a retinára, hanem elé fókuszálódik. Mínuszos (konkáv) lencsével korrigálható."
+- q: "1.Mi az a rövidlátás(myopia)"
+  a: "A rövidlátás egy látászavar, amely során a távoli tárgyak homályosan látszanak. Ennek oka, hogy a kép nem a retinára, hanem az elé fókuszálódik. Két fő oka lehet: vagy túl erős a szem törőereje, vagy túl hosszú a szem tengelye. Korrigálható mínuszos (konkáv) lencsével."
 
-- q: "Mit jelent a távollátás (hypermetropia)?"
-  a: "Távollátásnál a közeli dolgok homályosak lehetnek, mert a kép a retina mögé vetül. Pluszos (konvex) lencsével korrigálható."
+- q: "2. Mit jelent a távollátás (hypermetropia)?"
+  a: "A távollátás egy fénytörési hiba, nem betegség. Ilyenkor a távoli tárgyak képe az ideghártya mögött keletkezne, ezért nem látunk élesen – se közelre, se távolra (alkalmazkodás nélkül). Oka lehet gyenge törőerő vagy rövidebb szemgolyó. Korrigálható pluszos (konvex) lencsével."
 
-- q: "Mi az az asztigmia?"
-  a: "Az asztigmia a szem szabálytalan görbülete miatt alakul ki, torz/elmósódott képet okozhat."
+- q: "3. Mi az az asztigmia (astigmia)? Ez ugyanaz, mint a szemtengelyferdülés?"
+  a: "Nem, az asztigmia nem szemtengelyferdülés vagy kancsalság! Ez egy fénytörési hiba, amikor a szaruhártya (vagy más törőközeg) nem szabályos alakú – például nem gömbölyű, hanem inkább „rögbi labda” formájú. Emiatt a fény nem egy pontban fókuszálódik. Korrigálható cilinderes lencsével."
+
+- q: "4. Mi az a presbyopia („öregszeműség”)?"
+  a: "Ez az életkorral járó természetes jelenség, amikor a szem alkalmazkodóképessége csökken – főként olvasáskor vagy közeli munkavégzéskor jelentkezik. Korrigálható például olvasószemüveggel, bifokális vagy multifokális (progresszív) szemüveggel."
+
+- q: "5. Hogyan kezeljem helyesen a szemüvegemet?"
+  a: "Mindig két kézzel vegye fel és le a szemüveget. Ne tegye fejre vagy nyakba, mert eldeformálódhat. Kerülje a túlzott hőhatást (szauna, forró autó), mert torzulhat a lencse."
+
+- q: "6. Hol tároljam a szemüvegemet?"
+  a: "Mindig tokban tárolja, ha éppen nem használja. Ne hagyja szabadon, mert könnyen megsérülhet vagy elgörbülhet."
+
+- q: "7. Hogyan tisztítsam a szemüvegemet"
+  a: "Használjon mikroszálás törlőkendőt és szemüvegtisztitó folyadékot. Ne tisztítsa ruhávaé, papírzsebkendővel vagy szárazon - ezek karcolhatják a lencsét. Időnként lanygos vízzel is le lehet övlíteni majd puha kendővel."

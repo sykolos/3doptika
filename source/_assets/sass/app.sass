@@ -78,7 +78,7 @@ $font-primary: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-ser
 
 
 /* ---- Base ---- */
-*
+*, *::before, *::after
   box-sizing: border-box
 
 html, body
@@ -118,6 +118,11 @@ p
 
   +mq(520px)
     width: calc(100% - 28px)
+  
+  +mq(768px)
+    padding-left: 1.6rem
+    padding-right: 1.6rem
+  
 
 .h2
   font-size: 2.6em
@@ -126,12 +131,18 @@ p
   margin: 0 0 18px
   font-weight: 600
 
+  +mq(768px)
+    text-align: center
+
 .page-title
   font-size: 5em
   color: $navy
   letter-spacing: -2%
   font-family: $font-primary
   font-weight: 400
+  +mq(768px)
+    font-size: 4em
+    text-align: center
 
 .btn
   display: inline-flex
@@ -230,6 +241,11 @@ p
   box-shadow: $shadow-white
   -webkit-box-shadow: $shadow-white
   -moz-box-shadow: $shadow-white
+
+  +mq(768px)
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
 
 
 .site-nav__right
@@ -343,8 +359,11 @@ p
   color: $navy
   transform: rotate(0deg)
   transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000)
-  display: block
+  display: none
   cursor: pointer
+  +mq(768px)
+    display: block
+  
 
   &__bar,
   &__circle
@@ -447,6 +466,9 @@ body.is-nav-open
   width: 100%
   overflow: hidden
 
+  +mq(768px)
+    height: 65vh
+
 .hero__bg
   position: absolute
   inset: 0
@@ -492,7 +514,9 @@ body.is-nav-open
     line-height: 1.05
     color: #fff
     text-shadow: 1px 1px 6px rgba(0, 90, 200, 0.35), 0 0 14px rgba(0, 90, 200, 0.35),0 6px 22px rgba(255, 255, 255, 0.35)
-
+    
+    +mq(768px)
+      font-size: 3.6em
 /* =========================
    ABOUT
    ========================= */
@@ -508,7 +532,8 @@ body.is-nav-open
 
   &__media
     position: relative
-    width: 550px
+    max-width: 550px
+    width: 100%
     border-radius: $radius-xl
     display: flex
     align-items: center
@@ -552,6 +577,13 @@ body.is-nav-open
     grid-template-columns: 1.1fr 1fr
     gap: 6rem
     align-items: center
+
+    .btn--primary
+      justify-self: center
+  +mq(768px)
+    padding: 0
+    margin-bottom: 1.2rem
+    padding-bottom: 3.6rem
 
   &__right
     position: relative
@@ -618,10 +650,18 @@ body.is-nav-open
   padding: 1.8rem 6.4rem
   margin: 0 auto
 
+  +mq(768px)
+    padding: 0
+    margin-top: 3.2rem
+    margin-bottom: 1.6rem
+
 .service-list
   display: grid
   gap: 2.4rem           // nagyobb tér a kártyák között
   margin-top: 4rem
+
+  +mq(768px)
+    gap: 1.4rem
 
 .service-item
   display: flex
@@ -638,12 +678,20 @@ body.is-nav-open
   text-decoration: none
   transition: transform .25s ease, box-shadow .25s ease
 
+  +mq(768px)
+    gap: 1.4rem
+    min-height: 8rem
+    padding: 1.6rem
+
   &__text
     color: $blue
     font-weight: 400
-    line-height: 1.35
+    line-height: $line-height
     max-width: 85%     // ne fusson rá az ikonra
     font-size: 2em
+
+    +mq(768px)
+      font-size: 1.6em
 
   &__go
     width: 54px
@@ -670,6 +718,11 @@ body.is-nav-open
 .testimonials
   padding: 1.8rem 6.4rem
 
+  +mq(768px)
+    padding: 0
+    margin-top: 3.2rem
+    margin-bottom: 1.6rem
+
   &__title
     text-align: center
 
@@ -681,6 +734,9 @@ body.is-nav-open
 
   .testimonial-card__content
     margin: 0 2.4rem
+
+    +mq(768px)
+      margin: 0 auto
 
     p
       color: $text
@@ -734,9 +790,9 @@ body.is-nav-open
       height: 9px
       background: $blue
 
-  +mq(640px)
+  +mq(768px)
     .testimonial-card
-      padding: 22px 18px
+      padding: 8px
 
     .t-nav
       display: none
@@ -748,6 +804,10 @@ body.is-nav-open
   background: $sky
   padding: 1.8rem 6.4rem
 
+  +mq(768px)
+    margin-top: 3.2rem
+    padding: 2.6rem 1rem
+
   &__title
     color: #fff
     font-size: 2.6em
@@ -755,11 +815,19 @@ body.is-nav-open
     font-weight: 600
     padding-bottom: 1rem
 
+    +mq(768px)
+      text-align: center
+      font-size: 2.2em
+
   .formGrid
     display: grid
     grid-template-columns: 1fr 1fr
     gap: 3.4rem
     margin-bottom: 3.4rem
+
+    +mq(768px)
+      gap: 1.4rem
+      margin-bottom: 1.4rem
 
   .field
     display: grid
@@ -805,6 +873,10 @@ body.is-nav-open
     font-size: 1.6rem
     line-height: 32px
 
+    +mq(768px)
+      font-size: 1.2rem
+      line-height: 24px
+
     input[type="checkbox"]
       appearance: none
       -webkit-appearance: none
@@ -848,6 +920,10 @@ body.is-nav-open
 .footer
   background: $dark
   padding: 1.6rem 18rem 1.6rem 1.6rem
+
+  +mq(1024px)
+    padding: 1.6rem
+  
 
 .footer__inner
   display: flex
@@ -893,12 +969,16 @@ body.is-nav-open
 
 .pageHead
   padding: 14rem 6.4rem 0
-
+  +mq(768px)
+    padding: 0
 
 .cards
   padding: 10px 6.4rem 36px
   max-width: 1450px
   margin: 0 auto
+  +mq(768px)
+    padding: 0
+  
 
 .infoCard
   background: #fff
@@ -923,6 +1003,8 @@ body.is-nav-open
     line-height: $line-height
     letter-spacing: -2%
     font-weight: 400
+    +mq(768px)
+      font-size: 1.2em
 
   &:last-child
     margin-bottom: 0
@@ -968,9 +1050,11 @@ body.is-nav-open
       opacity: 0.95
       filter: saturate(1.05)
       transition: transform .12s ease, opacity .12s ease
+      +mq(768px)
+        max-width: 70px
+        max-height: 35px
 
     &:hover
-      transform: translateY(-2px)
       opacity: 1
 
   +mq(980px)
@@ -993,7 +1077,8 @@ body.is-nav-open
 .aboutPage
   padding: 14rem 6.4rem
   background: #fff
-
+  +mq(768px)
+    padding: 0
 
 .aboutIntro
   display: grid
@@ -1004,7 +1089,7 @@ body.is-nav-open
   margin: 0 auto
 
   .aboutIntro__media
-    width: 450px
+    max-width: 450px
     height: 450px
     border-radius: 8px
     overflow: hidden
@@ -1061,9 +1146,10 @@ body.is-nav-open
   +mq(980px)
     gap: 18px
 
-  +mq(760px)
+  +mq(768px)
     grid-template-columns: 1fr
     gap: 18px
+    padding: 0
 
 
 .teamCard
@@ -1124,6 +1210,9 @@ body.is-nav-open
   padding: 14rem 6.4rem 3.2rem
   background: #fff
 
+  +mq(768px)
+    padding: 0
+
 .contactTop
   display: grid
   grid-template-columns: 25vw 1fr
@@ -1178,6 +1267,7 @@ body.is-nav-open
   width: 100%
   height: 220px
 
+
   @media (min-width: 768px)
     height: 260px
 
@@ -1201,6 +1291,12 @@ body.is-nav-open
   background-size: cover
   background-position: center
   position: relative
+  +mq(768px)
+    margin-top: 4.8rem
+    display: flex
+    align-items: center
+    justify-content: center
+
 
   &__inner
     position: absolute
@@ -1224,6 +1320,9 @@ body.is-nav-open
   border-radius: $radius-nav-btn
   box-shadow: 0 18px 42px rgba(10,35,55,0.16)
   padding: 3.2rem
+  +mq(768px)
+    max-width: 350px
+    padding: 1rem 2.2rem
 
 .hoursGrid
   display: grid
@@ -1235,6 +1334,9 @@ body.is-nav-open
   gap: 14px
   font-size: 1.8em
   line-height: 30px
+  +mq(768px)
+    font-size: 1.4em
+    line-height: 20px
 
   span
     color: $navy
@@ -1246,6 +1348,8 @@ body.is-nav-open
 .cardPay
   padding: 2.8rem 6.4rem
   background: #fff
+  +mq(768px)
+    padding: 2.8rem 1.6rem
 
   &__title
     margin: 0 0 10px
@@ -1280,12 +1384,8 @@ body.is-nav-open
 .faqPage
   padding: 14rem 6.4rem
   background: #fff
-
-  &__title
-    margin: 0 0 18px
-    color: $blue
-    font-weight: 800
-    font-size: clamp(30px, 3vw, 44px)
+  +mq(768px)
+    padding: 0
 
 .faqList
   display: grid
@@ -1317,6 +1417,9 @@ body.is-nav-open
     font-size: 2rem
     letter-spacing: -2%
 
+    +mq(768px)
+      font-size: 1.6rem
+
   &__icon
     width: 54px
     height: 54px
@@ -1333,9 +1436,11 @@ body.is-nav-open
   &__a
     padding: 0 2.6rem 2.6rem
     color: $text
-    font-size: 1.6rem
+    font-size: 1.6em
     line-height: $line-height
     letter-spacing: -2%
+    +mq(768px)
+      font-size: 1.2em
 
   &[open]
     .faqItem__icon svg
