@@ -74,7 +74,9 @@
 
   {{-- MIÉRT VÁLASSZA --}}
   <section class="reasons">
+    <div class="container">
       <h2 class="h2">Miért válassza a 3D Optikát?</h2>
+      </div>
     <div class="container reasons__grid">
       <div class="reasons__left">
         

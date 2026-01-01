@@ -260,6 +260,12 @@ p {
   gap: 1.8rem;
 }
 
+@media (max-width: 768px) {
+  .site-nav__logo {
+    max-width: 180px;
+  }
+}
+
 .mobile-nav {
   display: none;
 }
@@ -1377,6 +1383,11 @@ body.is-nav-open {
   margin-left: 5.6rem;
   width: auto;
   max-width: 900px;
+}
+@media (max-width: 768px) {
+  .contactHero__inner {
+    margin-left: 0;
+  }
 }
 @media (max-width: 760px) {
   .contactHero {
