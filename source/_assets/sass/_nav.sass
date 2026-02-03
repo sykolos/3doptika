@@ -1,0 +1,282 @@
+.nav-container
+  width: 100%
+  background: rgba(255, 255, 255, 0.5)
+  backdrop-filter: blur(50px)
+  -webkit-backdrop-filter: blur(50px)
+  border-radius: 3.2rem
+  padding: 1.4rem
+  margin: 4.4rem auto
+  max-width: 127rem
+
+  .nav-content
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .nav-right
+      display: flex
+      align-items: center
+      gap: 2rem
+
+      ul
+        display: flex
+        gap: 4rem
+        list-style: none
+        margin: 0
+        padding: 0
+
+        li a
+          text-decoration: none
+          color: #001c54
+          font-weight: 500
+          font-size: 1.4rem
+ 
+  
+.site-nav
+  position: fixed
+  top: 2.4rem
+  left: 2.4rem
+  right: 2.4rem
+  z-index: 1000
+
+  +mq(768px)
+    top: 0
+    left: 0
+    right: 0
+    position: relative
+    height: 85px
+    display: flex
+
+.site-nav__inner
+  max-width: 127rem
+  margin: 0 auto
+  padding: 1.4rem 2.2rem
+
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  background: rgba(255, 255, 255, 0.65)
+  backdrop-filter: blur(11px)
+  -webkit-backdrop-filter: blur(11px)
+  border-radius: $radius-xl
+  box-shadow: $shadow-white
+  -webkit-box-shadow: $shadow-white
+  -moz-box-shadow: $shadow-white
+
+  +mq(768px)
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+
+
+.site-nav__right
+  display: flex
+  align-items: center
+  gap: 2.4rem
+
+.site-nav__menu
+  display: flex
+  gap: 2.8rem
+  list-style: none
+  margin: 0
+  padding: 0
+
+  a
+    text-decoration: none
+    font-size: 1.6rem
+    font-weight: 400
+    color: $blue
+    opacity: .85
+
+  a:hover
+    opacity: 1
+
+.site-nav__cta
+  display: inline-flex
+  align-items: center
+  gap: 1.8rem
+
+@function circumference($r)
+  $pi: 3.141592653
+  @return 2 * $pi * $r
+
+.site-nav__logo
+  +mq(768px)
+    max-width: 180px
+
+.mobile-nav
+  display: none
+
+  +mq(768px)
+    display: block
+    position: absolute
+    inset: 0
+    pointer-events: none //?
+    height: 100vh
+    width: 100vw
+
+  &__toggle
+    display: inline-block
+    position: absolute
+    z-index: 10
+    padding: 0
+    border: 0
+    background: transparent
+    outline: 0
+    right: 15px
+    top: 15px
+    cursor: pointer
+    border-radius: 50%
+    transition: background-color .15s linear
+    pointer-events: auto
+
+    &:hover
+      background-color: rgba(0, 0, 0, .2)
+
+
+  &__menu
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 2.6rem
+    list-style: none
+    margin: 0
+    padding: 0
+    visibility: hidden
+    z-index: 5
+    height:100vh
+
+  &__item
+    opacity: 0
+    transition: all .3s cubic-bezier(0.000, 0.995, 0.990, 1.000) .3s
+
+  &__item a
+    font-size: 2rem
+    letter-spacing: 5px
+    text-transform: uppercase
+    color: white
+    text-decoration: none
+    display: block
+    text-align: center
+    padding: 1rem
+
+    &:hover, &:focus
+      outline: 0
+      background-color:  rgba(0, 0, 0, .2)      
+
+  .mobile-cta-btn
+    text-transform: lowercase
+    letter-spacing: -2%
+    display: flex
+    margin-top: 2rem
+    padding: 16px 30px
+
+
+  @for $i from 1 through 5
+    &__item:nth-child(#{$i})
+      transform: translateY(-40px * $i)
+
+
+.menuicon
+  color: $navy
+  transform: rotate(0deg)
+  transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000)
+  display: none
+  cursor: pointer
+  +mq(768px)
+    display: block
+  
+
+  &__bar,
+  &__circle
+    stroke: currentColor
+    stroke-width: 3
+    stroke-linecap: round
+    fill: none
+
+  &__bar
+    transform: rotate(0deg)
+    transform-origin:50% 50%
+    transition: transform .25s ease-in-out
+
+  &__circle
+    stroke-dasharray: circumference(23)
+    stroke-dashoffset: circumference(23)
+    transition: stroke-dashoffset .3s linear .1s
+
+
+.mobile-splash
+  position: absolute
+  top: 3.2rem
+  right: 3.2rem
+  width: 1px
+  height: 1px
+  z-index: 1
+
+  &::after
+    content: ""
+    display: block
+    position: absolute
+    border-radius: 50%
+    background-color: $blue
+    
+    // screen diameter can be 142vmax at most,
+    // circle needs to be twice that size to cover it
+    width: 284vmax
+    height: 284vmax
+    top: -142vmax
+    left: -142vmax
+    
+    transform: scale(0)
+    transform-origin: 50% 50%
+    transition: transform .5s cubic-bezier(0.755, 0.050, 0.855, 0.060)
+    
+    // will-change tells the browser we plan to 
+    // animate this property in the near future
+    will-change: transform
+
+.mobile-nav--open
+  pointer-events: auto
+  touch-action: none
+
+  > .mobile-splash::after
+    transform: scale(1)
+
+  .mobile-nav__menu
+    visibility: visible
+
+  .mobile-nav__item
+    opacity: 1
+    transform: translateY(0)
+
+.mobile-nav__toggle.is-open
+  .menuicon
+    transform: rotate(180deg)
+    color: $navy
+
+    &__circle
+      stroke-dashoffset: 0
+
+    &__bar:nth-child(1),
+    &__bar:nth-child(4)
+      opacity: 0
+
+    &__bar:nth-child(2)
+      transform: rotate(45deg)
+
+    &__bar:nth-child(3)
+      transform: rotate(-45deg)
+
+
+// DESKTOP NAV ELREJTÉSE MOBILON
++mq(768px)
+  .site-nav__menu,
+  .site-nav__cta
+    display: none
+
+body.is-nav-open
+  overflow: hidden
+  height: 100vh

@@ -1,0 +1,81 @@
+.testimonials
+  padding: 1.8rem 6.4rem
+
+  +mq(768px)
+    padding: 0
+    margin-top: 3.2rem
+    margin-bottom: 1.6rem
+
+  &__title
+    text-align: center
+
+  .testimonial-card
+    margin-top: 18px
+    position: relative
+    padding: 26px 54px
+    text-align: center
+
+  .testimonial-card__content
+    margin: 0 2.4rem
+
+    +mq(768px)
+      margin: 0 auto
+
+    p
+      color: $text
+      margin-bottom: 14px
+      line-height: 26px
+      font-size: 1.8em
+      letter-spacing: -2%
+
+
+  .testimonial-card__name
+    font-weight: 600
+    color: $text
+    font-size: 1.8em
+    margin-top: 6px
+    letter-spacing: -2%
+
+  .t-nav
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 54px
+    height: 54px
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    background: transparent
+    border: 2px solid $navy
+    border-radius: $radius-nav-btn
+
+    &--left
+      left: 12px
+
+    &--right
+      right: 12px
+  .dots
+    margin-top: 12px
+    display: inline-flex
+    gap: 8px
+    align-items: center
+    justify-content: center
+
+  .dot
+    width: 7px
+    height: 7px
+    border-radius: 999px
+    background: rgba(13,79,121,0.18)
+
+    &--active
+      width: 9px
+      height: 9px
+      background: $blue
+
+  +mq(768px)
+    .testimonial-card
+      padding: 8px
+
+    .t-nav
+      display: none

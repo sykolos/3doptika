@@ -1,0 +1,46 @@
+
+.footer
+  background: $dark
+  padding: 1.6rem 18rem 1.6rem 1.6rem
+
+  +mq(1024px)
+    padding: 1.6rem
+  
+
+.footer__inner
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.footer__logo img
+  height: 28px
+  display: block
+
+.footer__social
+  display: inline-flex
+  gap: 14px
+
+.socialBtn
+  width: 36px
+  height: 36px
+  border-radius: 999px
+
+  display: inline-flex
+  align-items: center
+  justify-content: center
+
+  color: #fff
+  border: 1px solid rgba(255,255,255,0.25)
+  background: transparent
+
+  transition: background .2s ease, border-color .2s ease
+
+.socialBtn:hover
+  background: rgba(255,255,255,0.12)
+  border-color: rgba(255,255,255,0.45)
+
++mq(520px)
+  .footer__inner
+    flex-direction: column
+    gap: 14px
+

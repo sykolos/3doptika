@@ -1,0 +1,65 @@
+
+.services
+  padding: 1.8rem 6.4rem
+  margin: 0 auto
+
+  +mq(768px)
+    padding: 0
+    margin-top: 3.2rem
+    margin-bottom: 1.6rem
+
+.service-list
+  display: grid
+  gap: 2.4rem           // nagyobb tér a kártyák között
+  margin-top: 4rem
+
+  +mq(768px)
+    gap: 1.4rem
+
+.service-item
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 2.4rem
+  min-height: 10rem
+  padding: 2.6rem
+  border-radius: $radius-nav-btn
+
+  background: #fff
+  box-shadow: 0 20px 60px rgba(13,79,121,0.1)
+
+  text-decoration: none
+  transition: transform .25s ease, box-shadow .25s ease
+
+  +mq(768px)
+    gap: 1.4rem
+    min-height: 8rem
+    padding: 1.6rem
+
+  &__text
+    color: $blue
+    font-weight: 400
+    line-height: $line-height
+    max-width: 85%     // ne fusson rá az ikonra
+    font-size: 2em
+
+    +mq(768px)
+      font-size: 1.6em
+
+  &__go
+    width: 54px
+    height: 54px
+    border-radius: $radius-nav-btn
+
+    display: inline-flex
+    align-items: center
+    justify-content: center
+
+    border: 2px solid $navy
+    color: $navy
+    background: transparent
+    flex: 0 0 auto
+
+    &:hover
+      box-shadow: $shadow-hover-btn
+      

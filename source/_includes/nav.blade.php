@@ -8,7 +8,7 @@
       <ul class="site-nav__menu">
         <li><a href="/about">rólunk</a></li>
         <li><a href="/services">szolgáltatásaink</a></li>
-        <li><a href="#">blog</a></li>
+        <li><a href="/blog">blog</a></li>
         <li><a href="/gyik">GYIK</a></li>
         <li><a href="/contact">kapcsolat</a></li>
       </ul>

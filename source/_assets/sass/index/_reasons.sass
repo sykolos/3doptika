@@ -1,0 +1,78 @@
+.reasons
+  padding: 1.8rem 6.4rem
+  overflow: hidden
+  background: url('/assets/images/index/shop-interrieur-min.jpg')
+  background-repeat: no-repeat
+  background-position: right center
+  background-size: cover
+  min-height: 85vh
+
+  &__grid
+    display: grid
+    grid-template-columns: 1.1fr 1fr
+    gap: 6rem
+    align-items: center
+
+    .btn--primary
+      justify-self: center
+  +mq(768px)
+    padding: 0
+    margin-bottom: 1.2rem
+    padding-bottom: 3.6rem
+
+  &__right
+    position: relative
+    border-radius: $radius-xl
+    min-height: 100vh
+    width: 100vw
+    background-image: var(--reasons-bg)
+    background-size: cover
+    background-position: center
+    overflow: hidden
+    margin-right: calc(50% - 50vw)
+  
+  &__left
+    padding-left: 1rem
+
+  &__overlay
+    position: absolute
+    inset: 0
+    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.08) 100%)
+
+  .checklist
+    list-style: none
+    padding: 0
+    margin: 0 0 4rem
+    display: grid
+    gap: 1.6rem
+
+    li
+      display: grid
+      grid-template-columns: 18px 1fr
+      gap: 2rem
+      align-items: start
+      font-size: 1.6em
+      line-height: $line-height
+
+      strong
+        color: $text
+        font-weight: 600
+
+    &__icon
+      width: 35px
+      height: 35px
+      margin-top: 5px
+      border-radius: 999px
+      background-color: $navy
+      mask: url('/assets/images/icons/listicon.svg') center / 28px no-repeat
+      -webkit-mask: url('/assets/images/icons/listicon.svg') center / 28px no-repeat
+
+  +mq(980px)
+    &__grid
+      grid-template-columns: 1fr
+
+    &__right
+      min-height: 240px
+
+    &__overlay
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0.08) 100%)

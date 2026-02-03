@@ -1,0 +1,486 @@
+/* =========================
+   / SZOLGÁLTATÁSAINK oldal
+   ========================= */
+
+.pageHead
+  padding: 14rem 6.4rem 0
+  +mq(768px)
+    padding: 0
+
+.cards
+  padding: 10px 6.4rem 36px
+  max-width: 1450px
+  margin: 0 auto
+  +mq(768px)
+    padding: 0
+  
+
+.infoCard
+  background: #fff
+  border: 1px solid rgba(13, 79, 121, 0.10)
+  border-radius: 16px
+  box-shadow: 0 10px 26px rgba(10, 35, 55, 0.08)
+  padding: 3.2rem 2.6rem
+  margin: 0 0 18px
+
+  &__title
+    margin: 0 0 10px
+    color: $blue
+    font-weight: 400
+    font-size: 2em
+    line-height: 28px
+    letter-spacing: -2%
+
+  &__text
+    margin: 0 0 10px
+    color: $text
+    font-size: 1.4em
+    line-height: $line-height
+    letter-spacing: -2%
+    font-weight: 400
+    +mq(768px)
+      font-size: 1.2em
+
+  &:last-child
+    margin-bottom: 0
+
+  +mq(520px)
+    padding: 16px 16px
+.brand-title
+  text-align: center
+
+.brands
+  padding: 26px 0 34px
+
+  &__title
+    text-align: center
+    color: $blue
+    font-weight: 800
+    margin: 0 0 18px
+    font-size: 16px
+
+.brandGrid
+  display: flex
+  gap: 32px
+  align-items: center
+  justify-items: center
+  justify-content: center
+  max-width: 1100px
+  margin: 0 auto
+  flex-wrap: wrap
+  padding: 0 16px
+
+
+  &__item
+    height: 80px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      max-width: 140px
+      max-height: 48px
+      width: auto
+      height: auto
+      opacity: 0.95
+      filter: saturate(1.05)
+      transition: transform .12s ease, opacity .12s ease
+      +mq(768px)
+        max-width: 70px
+        max-height: 35px
+
+    &:hover
+      opacity: 1
+
+  +mq(980px)
+    grid-template-columns: repeat(4, 1fr)
+
+  +mq(760px)
+    grid-template-columns: repeat(3, 1fr)
+    gap: 14px
+
+  +mq(520px)
+    grid-template-columns: repeat(2, 1fr)
+    gap: 12px
+    &__img
+      max-width: 160px
+
+  /* =========================
+   RÓLUNK oldal
+   ========================= */
+
+.aboutPage
+  padding: 14rem 6.4rem
+  background: #fff
+  +mq(768px)
+    padding: 0
+
+.aboutIntro
+  display: grid
+  grid-template-columns: 420px 1fr
+  gap: 56px
+  align-items: center
+  max-width: 1450px
+  margin: 0 auto
+
+  .aboutIntro__media
+    max-width: 450px
+    height: 450px
+    border-radius: 8px
+    overflow: hidden
+    box-shadow: 0 24px 40px rgba(10, 35, 55, 0.1)
+    background: #fff
+
+  .aboutIntro__img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+    display: block
+
+
+  &__text
+    p
+      margin: 0 0 18px
+      color: $text
+      font-size: 1.6em
+      line-height: $line-height
+
+  &__highlight
+    margin-top: 20px
+    font-weight: 600
+
+  +mq(900px)
+    grid-template-columns: 320px 1fr
+    gap: 36px
+
+  +mq(720px)
+    grid-template-columns: 1fr
+    gap: 22px
+
+    &__img
+      aspect-ratio: 16 / 10
+
+
+
+.team
+  padding: 80px 0 60px
+  background: #fff
+
+  .h2
+    margin-bottom: 40px
+    text-align: center
+
+.teamGrid
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: 26px
+  justify-items: center
+  padding: 0 6.4rem
+
+  +mq(980px)
+    gap: 18px
+
+  +mq(768px)
+    grid-template-columns: 1fr
+    gap: 18px
+    padding: 0
+
+
+.teamCard
+  width: min(320px, 100%)
+
+  &__img
+    width: 100%
+    height: auto
+    display: block
+    margin: 0 auto
+    border-radius: 18px
+    box-shadow: 0 16px 40px rgba(10, 35, 55, 0.1)
+    background: #fff
+    max-width: 400px
+
+  &__name
+    margin-top: 14px
+    text-align: center
+    color: $navy
+    font-weight: 400
+    font-size: 1.6em
+    line-height: $line-height
+    letter-spacing: -2%
+
+  &__role
+    text-align: center
+    color: #4a4a4a
+    font-size: 1.6em
+    letter-spacing: -2%
+    font-weight: 400
+
+/* A screenshot alapján: alul 3 kártya szépen egymás mellett desktopon */
+@media (min-width: 980px)
+  .teamGrid
+    grid-template-columns: repeat(6, 1fr)
+    gap: 40px
+    max-width: 1450px
+    margin: 0 auto
+
+  .teamCard
+    width: 100%
+
+  .teamCard:nth-child(1),
+  .teamCard:nth-child(2)
+    grid-column: span 3
+
+  .teamCard:nth-child(3),
+  .teamCard:nth-child(4),
+  .teamCard:nth-child(5)
+    grid-column: span 2
+
+
+  /* =========================
+   KAPCSOLAT oldal
+   ========================= */
+
+.contactPage
+  padding: 14rem 6.4rem 3.2rem
+  background: #fff
+
+  +mq(768px)
+    padding: 0
+
+.contactTop
+  display: grid
+  grid-template-columns: 25vw 1fr
+  gap: 22px
+  align-items: center
+
+  +mq(900px)
+    grid-template-columns: 1fr
+    gap: 16px
+
+.contactInfo
+  display: flex
+  flex-direction: column
+  gap: 2rem
+  padding: 2.4rem
+
+  &__row
+    display: flex
+    align-items: center
+    gap: 1.4rem
+
+  &__icon
+    width: 45px
+    height: 45px
+    flex-shrink: 0
+
+    img
+      width: 100%
+      height: 100%
+      display: block
+
+  &__text
+    font-size: 1.6rem
+    line-height: $line-height
+    font-weight: 400
+    letter-spacing: -2%
+
+  &__link
+    color: inherit
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+.mapBox
+  border-radius: $radius-nav-btn
+  overflow: hidden
+  border: 1px solid rgba(13,79,121,0.12)
+  box-shadow: 0 14px 36px rgba(10, 35, 55, 0.10)
+  background: #fff
+  position: relative
+  width: 100%
+  height: 220px
+
+
+  @media (min-width: 768px)
+    height: 260px
+
+  @media (min-width: 1200px)
+    height: 300px
+
+  iframe
+    width: 100%
+    height: 100%
+    border: 0
+    position: absolute
+    inset: 0
+
+
+
+.contactHero
+  margin-top: 22px
+  min-height: 95vh
+  padding: 0 6.4rem
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.18), rgba(0,0,0,0.02)), var(--contact-bg)
+  background-size: cover
+  background-position: center
+  position: relative
+  +mq(768px)
+    margin-top: 4.8rem
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+  &__inner
+    position: absolute
+    top:50%
+    transform: translateY(-50%)
+    margin-left: 5.6rem
+    width: auto
+    max-width: 900px
+
+    +mq(768px)
+      margin-left: 0
+
+
+
+
+  +mq(760px)
+    min-height: 320px
+    padding: 34px 0
+
+
+.hoursCard
+  width: clamp(540px, 48vw, 620px)
+  background: #fff
+  border: none
+  border-radius: $radius-nav-btn
+  box-shadow: 0 18px 42px rgba(10,35,55,0.16)
+  padding: 3.2rem
+  +mq(768px)
+    max-width: 350px
+    padding: 1rem 2.2rem
+
+.hoursGrid
+  display: grid
+
+.hoursRow
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 14px
+  font-size: 1.8em
+  line-height: 30px
+  +mq(768px)
+    font-size: 1.4em
+    line-height: 20px
+
+  span
+    color: $navy
+    font-weight: 400
+    letter-spacing: -2%
+
+
+
+.cardPay
+  padding: 2.8rem 6.4rem
+  background: #fff
+  +mq(768px)
+    padding: 2.8rem 1.6rem
+
+  &__title
+    margin: 0 0 10px
+    color: $navy
+    font-weight: 600
+    font-size: 2em
+    letter-spacing: -2px
+    line-height: $line-height
+
+  &__lead
+    margin: 0 0 10px
+    color: $text
+    font-size: 1.6rem
+    font-weight: 500
+    line-height: $line-height
+    padding-top: 1.6rem
+
+  &__list
+    margin: 0 20px 10px
+    padding-left: 18px
+    color: $text
+    font-size: 1.6rem
+    line-height: $line-height
+    font-weight: 400
+
+  &__note
+    padding-top: 1.6rem
+/* =========================
+   GYIK oldal
+   ========================= */
+
+.faqPage
+  padding: 14rem 6.4rem
+  background: #fff
+  +mq(768px)
+    padding: 0
+
+.faqList
+  display: grid
+  gap: 30px
+  max-width: 1450px
+  margin: 0 auto
+  width: 100%
+
+.faqItem
+  box-shadow: 0 20px 60px rgba(13,79,121,0.1)
+  border-radius: $radius-nav-btn
+  background: #fff
+
+  summary
+    list-style: none
+
+  summary::-webkit-details-marker
+    display: none
+
+  &__q
+    padding: 2.6rem
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 2.4rem
+    color: $blue
+    font-weight: 600
+    font-size: 2rem
+    letter-spacing: -2%
+
+    +mq(768px)
+      font-size: 1.6rem
+
+  &__icon
+    width: 54px
+    height: 54px
+    border-radius: $radius-nav-btn
+    border: 2px solid $navy
+    display: flex
+    align-items: center
+    justify-content: center
+    flex: 0 0 auto
+
+    svg
+      transition: transform .3s ease
+
+  &__a
+    padding: 0 2.6rem 2.6rem
+    color: $text
+    font-size: 1.6em
+    line-height: $line-height
+    letter-spacing: -2%
+    +mq(768px)
+      font-size: 1.2em
+
+  &[open]
+    .faqItem__icon svg
+      transform: rotate(180deg)

@@ -1,0 +1,61 @@
+.btn
+  display: inline-flex
+  align-items: center
+  gap: 20px
+  border: 0
+  cursor: pointer
+  font-weight: 400
+  letter-spacing: -2%
+  font-family: $font-primary
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease
+  border-radius: $radius-nav-btn
+  font-size: 1.6em
+
+  &__icon
+    display: inline-flex
+
+  &:active
+    transform: translateY(1px)
+
+.btn--pill
+  padding: 10px 14px
+  background: rgba(255,255,255,0.75)
+  backdrop-filter: blur(10px)
+  box-shadow: $shadow-pill
+  color: $navy
+  border: 1px solid rgba(255,255,255,0.55)
+
+.btn--primary
+  padding: 16px 30px
+  background: $navy
+  color: #fff
+  box-shadow: $shadow-pill
+  &:hover
+      transform: translateY(-1px)
+      transition-duration: 1s
+      box-shadow: $shadow-hover-btn
+      -webkit-box-shadow: $shadow-hover-btn
+      -moz-box-shadow: $shadow-hover-btn
+
+.btn--outline
+    background: #fff
+    border: 2px solid $navy
+    color: $blue
+    backdrop-filter: blur(6px)
+    box-shadow: 0 0 0 rgba(0,0,0,0)
+    border-radius: $radius-nav-btn
+    padding: 1rem 6.8rem
+    font-size: 1.8em
+
+    svg
+      transition: transform .2s ease
+
+    &:hover
+      transform: translateY(-0.5px)
+      transition-duration: 1s
+      box-shadow: $shadow-hover-btn
+      -webkit-box-shadow: $shadow-hover-btn
+      -moz-box-shadow: $shadow-hover-btn
+
+      svg
+        transform: translateX(3px)
