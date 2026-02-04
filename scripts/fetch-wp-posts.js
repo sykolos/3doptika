@@ -1,33 +1,41 @@
-import fs from "fs";
+import { fetchWp } from "./fetch-wp.js";
 
-const API_URL = "https://admin.3doptika.hu/wp-json/wp/v2/posts?_embed&per_page=100";
-const OUTPUT = "source/_data/posts.json";
+fetchWp({
+  name: "Blogposztok",
+  url: "https://admin.3doptika.hu/wp-json/wp/v2/posts?_embed&per_page=100",
+  output: "source/_data/posts.json",
 
-async function run() {
-  console.log("▶ Blogposztok lekérése...");
+  mapItem: p => ({
+    id: p.id,
 
-  const res = await fetch(API_URL);
-  if (!res.ok) {
-    throw new Error("WP API nem elérhető");
-  }
+    slug: p.slug,
 
-  const data = await res.json();
+    url: `https://3doptika.hu/blog/${p.slug}/`,
 
-  const posts = data.map(p => ({
-    title: p.title.rendered,
-    content: p.content.rendered,
-    excerpt: p.excerpt.rendered,
-    date: p.date,
+    title: p.title?.rendered ?? "",
+
+    excerpt: p.excerpt?.rendered ?? "",
+
+    content: p.content?.rendered ?? "",
+
+    date: p.date ?? null,
+
+    author:
+      p._embedded?.author?.[0]?.name ?? "",
+
     featured_image:
-      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null
-  }));
+      p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null,
 
-  fs.mkdirSync("source/_data", { recursive: true });
-  fs.writeFileSync(OUTPUT, JSON.stringify(posts, null, 2));
+    tags:
+      p._embedded?.["wp:term"]
+        ?.flat()
+        ?.filter(t => t.taxonomy === "post_tag")
+        ?.map(t => t.name) ?? [],
 
-  console.log(`✔ ${posts.length} poszt elmentve ide: ${OUTPUT}`);
-}
+    meta_title:
+      p.yoast_head_json?.title ?? null,
 
-run().catch(err => {
-  console.error("❌ Hiba:", err.message);
+    meta_description:
+      p.yoast_head_json?.description ?? null
+  })
 });

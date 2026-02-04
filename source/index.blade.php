@@ -221,7 +221,7 @@
       </div>
     </div>
   </section> --}}
-  <section class="testimonials">
+ <section class="testimonials">
   <div class="container">
     <h2 class="h2 testimonials__title">Rólunk mondták</h2>
 
@@ -238,7 +238,7 @@
       </button>
 
       {{-- SLIDES --}}
-      @foreach ($page->testimonials as $index => $item)
+      @foreach ($testimonials as $index => $item)
         <div
           class="testimonial-card__content{{ $index === 0 ? ' is-active' : '' }}"
           data-slide="{{ $index }}"
@@ -254,7 +254,7 @@
           @endif
 
           <div class="dots" aria-label="Lapozás">
-            @foreach ($page->testimonials as $dotIndex => $_)
+            @foreach ($testimonials as $dotIndex => $_)
               <span
                 class="dot{{ $dotIndex === $index ? ' dot--active' : '' }}"
                 data-dot="{{ $dotIndex }}"
@@ -277,6 +277,7 @@
     </div>
   </div>
 </section>
+
 
 
 
