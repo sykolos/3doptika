@@ -13,7 +13,6 @@
     @if (!empty($post['featured_image']))
       <img src="{{ $post['featured_image'] }}" alt="">
     @endif
-
     {!! $post['content'] !!}
   </article>
 @endforeach

@@ -28,7 +28,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: fetch data from WordPress API
-        run: php scripts/fetch-wp-posts.php
+        run: node scripts/fetch-wp-posts.js
 
       - name: Install Node deps
         run: npm ci
