@@ -30,7 +30,6 @@
       </a>
     </div>
   </div>
-
   <div class="contactInfo__row">
     <span class="contactInfo__icon" aria-hidden="true">
       <img src="/assets/images/icons/phone.svg" alt="">
