@@ -17,7 +17,5 @@
     {!! $post['content'] !!}
   </article>
 @endforeach
-
-
 </div>
 @endsection
