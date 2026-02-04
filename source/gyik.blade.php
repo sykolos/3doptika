@@ -9,7 +9,7 @@
     @foreach($page->faq as $item)
   <details class="faqItem">
     <summary class="faqItem__q">
-      <span>{{ $item['q'] }}</span>
+      <span>{{ $item['question'] }}</span>
       <span class="faqItem__icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M6 9l6 6 6-6"
@@ -19,9 +19,8 @@
                     stroke-linejoin="round"/>
             </svg>
             </span>
-      </span>
     </summary>
-    <div class="faqItem__a">{{ $item['a'] }}</div>
+    <div class="faqItem__a">{!! $item['answer'] !!}</div>
   </details>
 @endforeach
 

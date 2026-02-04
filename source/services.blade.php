@@ -9,7 +9,7 @@
   </div>
 </section>
 
-<section class="cards">
+{{-- <section class="cards">
   <div class="container">
 
     <article class="infoCard">
@@ -69,6 +69,23 @@
         amelyek segítik a mindennapi életet.
       </p>
     </article>
+
+  </div>
+</section> --}}
+<section class="cards">
+  <div class="container">
+
+    @foreach ($page->services as $service)
+      <article class="infoCard">
+        <h2 class="infoCard__title">
+          {!! $service['title'] !!}
+        </h2>
+
+        <div class="infoCard__text">
+          {!! $service['content'] !!}
+        </div>
+      </article>
+    @endforeach
 
   </div>
 </section>

@@ -24,7 +24,7 @@ if (mobileNav && menu && toggle) {
     }
   });
 
-  // 🔥 bármely link bezárja a menüt
+  //  bármely link bezárja a menüt
   const navLinks = mobileNav.querySelectorAll('a');
 
   navLinks.forEach(link => {

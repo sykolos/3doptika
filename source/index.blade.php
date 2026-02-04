@@ -187,7 +187,7 @@
 
 
   {{-- RÓLUNK MONDTÁK --}}
-  <section class="testimonials">
+  {{-- <section class="testimonials">
     <div class="container">
       <h2 class="h2 testimonials__title">Rólunk mondták</h2>
 
@@ -220,7 +220,63 @@
         </button>
       </div>
     </div>
-  </section>
+  </section> --}}
+  <section class="testimonials">
+  <div class="container">
+    <h2 class="h2 testimonials__title">Rólunk mondták</h2>
+
+    <div class="testimonial-card">
+
+      <button class="t-nav t-nav--left" type="button" aria-label="Előző">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18l-6-6 6-6"
+                stroke="#043E6C"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      {{-- SLIDES --}}
+      @foreach ($page->testimonials as $index => $item)
+        <div
+          class="testimonial-card__content{{ $index === 0 ? ' is-active' : '' }}"
+          data-slide="{{ $index }}"
+        >
+          <div class="testimonial-card__text">
+            {!! $item['text'] !!}
+          </div>
+
+          @if (!empty($item['author']))
+            <div class="testimonial-card__name">
+              {{ $item['author'] }}
+            </div>
+          @endif
+
+          <div class="dots" aria-label="Lapozás">
+            @foreach ($page->testimonials as $dotIndex => $_)
+              <span
+                class="dot{{ $dotIndex === $index ? ' dot--active' : '' }}"
+                data-dot="{{ $dotIndex }}"
+              ></span>
+            @endforeach
+          </div>
+        </div>
+      @endforeach
+
+      <button class="t-nav t-nav--right" type="button" aria-label="Következő">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18l6-6-6-6"
+                stroke="#043E6C"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</section>
 
 
 
