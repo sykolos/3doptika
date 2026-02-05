@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { fetchWp } from "./fetch-wp.js";
 
 fetchWp({

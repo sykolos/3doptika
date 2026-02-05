@@ -12,7 +12,7 @@
 <section class="cards">
   <div class="container">
 
-    @foreach ($page->services as $service)
+    @forelse ($page->services as $service)
       <article class="infoCard">
         <h2 class="infoCard__title">
           {!! $service['title'] !!}
@@ -22,10 +22,16 @@
           {!! $service['content'] !!}
         </div>
       </article>
-    @endforeach
+    @empty
+      <div class="empty-state">
+        <h2>Jelenleg nincs elérhető szolgáltatás</h2>
+        <p>Kérjük, látogasson vissza később, vagy vegye fel velünk a kapcsolatot.</p>
+      </div>
+    @endforelse
 
   </div>
 </section>
+
 
 
 <section class="brands">

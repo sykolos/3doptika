@@ -5,15 +5,14 @@
         "watch": "mix watch",
         "staging": "NODE_ENV=staging mix",
         "prod": "mix --production",
-        "production": "npm run prod"
-    },
+        "production": "npm run prod",
+        "fetch": "node scripts/fetch-wp-posts.js && node scripts/fetch-wp-services.js && node scripts/fetch-wp-faq.js && node scripts/fetch-wp-testimonials.js",
+        "build": "npm run fetch && node scripts/generate-blog-posts.js && npm run prod && jigsaw build"
+},
     "devDependencies": {
         "laravel-mix": "^6.0.39",
         "laravel-mix-jigsaw": "^2.0.0",
-        "postcss": "^8.4.14",
-        "postcss-import": "^14.0.0",
         "sass": "^1.97.1",
-        "sass-loader": "^12.1.0",
-        "tailwindcss": "^3.1.6"
+        "sass-loader": "^12.1.0"
     }
 }

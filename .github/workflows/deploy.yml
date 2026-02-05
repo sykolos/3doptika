@@ -27,18 +27,6 @@ jobs:
       - name: Install PHP deps
         run: composer install --no-interaction --prefer-dist
 
-      - name: fetch blog posts from WP 
-        run: node scripts/fetch-wp-posts.js
-      
-      - name: fetch services from WP 
-        run: node scripts/fetch-wp-services.js
-      
-      - name: fetch faq from WP 
-        run: node scripts/fetch-wp-faq.js
-      
-      - name: fetch testimonials from WP 
-        run: node scripts/fetch-wp-testimonials.js
-
       - name: Install Node deps
         run: npm ci
 

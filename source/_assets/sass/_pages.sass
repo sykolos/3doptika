@@ -484,3 +484,113 @@
   &[open]
     .faqItem__icon svg
       transform: rotate(180deg)
+/* =========================
+   BLOG oldal
+   ========================= */
+.infoCard--blog
+  position: relative
+  padding-bottom: 48px
+
+  .infoCard__thumb
+    float: left
+    width: 110px
+    height: 110px
+    margin: 0 16px 10px 0
+    border-radius: 12px
+    overflow: hidden
+    background: #f3f5f7
+
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      display: block
+
+  .infoCard__title
+    margin: 0
+    font-size: 1.8em
+    line-height: 1.2
+
+    a
+      color: $blue
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline
+
+  .infoCard__date
+    display: block
+    margin: 4px 0 10px
+    font-size: 1.2em
+    color: rgba(0, 0, 0, 0.5)
+
+  .infoCard__text
+    font-size: 1.4em
+    line-height: $line-height
+
+  .infoCard__more
+    position: absolute
+    right: 24px
+    bottom: 20px
+    color: $blue
+    font-weight: 500
+    text-decoration: none
+    font-size: 1.2em
+
+  &:after
+    content: ''
+    display: block
+    clear: both
+
+
++mq(520px)
+  .infoCard--blog
+
+    .infoCard__thumb
+      float: none
+      width: 100%
+      height: 160px
+      margin: 0 0 12px
+
+
+/* =========================
+   BLOGPOST oldal
+   ========================= */
+.infoCard--post
+  padding: 4rem 3.2rem
+  margin-bottom: 4rem !important
+  position: relative
+  
+  &:after
+    content: ''
+    display: table
+    clear: both
+
+.post-meta
+  font-size: 1.2em
+  color: rgba(0, 0, 0, .55)
+  margin-bottom: 2rem
+
+
+.post-image
+  float: left
+  width: 280px
+  max-width: 40%
+  margin: 0 2.4rem 1.2rem 0
+  border-radius: 16px
+  overflow: hidden
+
+  img
+    width: 100%
+    height: auto
+    display: block
+
+.post-content
+  line-height: 1.7
+  font-size: 1.5em
+
+  h2,
+  h3
+    margin-top: 3rem
+
+

@@ -1,38 +1,53 @@
 @extends('_layouts.main')
 
 @section('content')
-<h1>Blog</h1>
 
-<div class="blog-list">
-@foreach ($posts as $post)
-  <article class="blog-card">
+<section class="pageHead">
+  <div class="container">
+    <h1 class="page-title">Blog</h1>
+  </div>
+</section>
 
-    <a href="/blog/{{ $post->slug }}/">
+<section class="cards">
+  <div class="container">
+
+    @forelse ($posts as $post)
+      <article class="infoCard infoCard--blog">
+
       @if ($post->featured_image)
-        <img src="{{ $post->featured_image }}" alt="{{ strip_tags($post->title) }}">
+        <div class="infoCard__thumb">
+          <img src="{{ $post->featured_image }}" alt="{{ strip_tags($post->title) }}">
+        </div>
       @endif
 
-      <h2>{!! $post->title !!}</h2>
-    </a>
+      <h2 class="infoCard__title">
+        <a href="/blog/{{ $post->slug }}/">
+          {!! $post->title !!}
+        </a>
+      </h2>
 
-    @if (!empty($post->tags))
-      <ul class="blog-tags">
-        @foreach ($post->tags as $tag)
-          <li>{{ $tag }}</li>
-        @endforeach
-      </ul>
-    @endif
+      <span class="infoCard__date">
+        {{ \Carbon\Carbon::parse($post->date)->format('Y. m. d.') }}
+      </span>
 
-    <div class="blog-excerpt">
-      {!! $post->excerpt !!}
-    </div>
+      <div class="infoCard__text">
+        {!! $post->excerpt !!}
+      </div>
 
-    <a class="read-more" href="/blog/{{ $post->slug }}/">
+      <a class="infoCard__more" href="/blog/{{ $post->slug }}/">
+        Olvasok tovább →
+      </a>
 
-      Olvasok tovább →
-    </a>
+    </article>
 
-  </article>
-@endforeach
-</div>
+    @empty
+      <div class="empty-state">
+        <h2>Még nincs bejegyzés</h2>
+        <p>Hamarosan friss tartalommal jelentkezünk.</p>
+      </div>
+    @endforelse
+
+  </div>
+</section>
+
 @endsection
