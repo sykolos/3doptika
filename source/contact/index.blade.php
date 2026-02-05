@@ -42,15 +42,8 @@
   </div>
 </div>
 
-
-      {{-- MAP PLACEHOLDER – később csere Google Maps iframe-re --}}
       <div class="mapBox" aria-label="Térkép">
-        {{-- <div class="mapBox__placeholder">
-          <div class="mapBox__pin" aria-hidden="true"></div>
-          <div class="mapBox__text">
-            Google térkép hamarosan
-          </div>
-        </div> --}}
+        
 
         <iframe
          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.9022584803333!2d19.13003587682589!3d47.77978437600183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47402a6008edf783%3A0x33f391e7aec97938!2s3D%20Optika!5e1!3m2!1sen!2shu!4v1767029131430!5m2!1sen!2shu" 

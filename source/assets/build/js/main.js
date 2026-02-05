@@ -26,7 +26,7 @@ if (mobileNav && menu && toggle) {
     }
   });
 
-  // 🔥 bármely link bezárja a menüt
+  //  bármely link bezárja a menüt
   var navLinks = mobileNav.querySelectorAll('a');
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -37,6 +37,36 @@ if (mobileNav && menu && toggle) {
     });
   });
 }
+document.addEventListener('DOMContentLoaded', function () {
+  var slides = document.querySelectorAll('.testimonial-card__content');
+  if (!slides.length) return;
+  var dots = document.querySelectorAll('.dot');
+  var prev = document.querySelector('.t-nav--left');
+  var next = document.querySelector('.t-nav--right');
+  var current = 0;
+  function showSlide(index) {
+    slides.forEach(function (s) {
+      return s.classList.remove('is-active');
+    });
+    dots.forEach(function (d) {
+      return d.classList.remove('dot--active');
+    });
+    slides[index].classList.add('is-active');
+    dots[index].classList.add('dot--active');
+    current = index;
+  }
+  prev.addEventListener('click', function () {
+    showSlide((current - 1 + slides.length) % slides.length);
+  });
+  next.addEventListener('click', function () {
+    showSlide((current + 1) % slides.length);
+  });
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      return showSlide(i);
+    });
+  });
+});
 
 /***/ },
 

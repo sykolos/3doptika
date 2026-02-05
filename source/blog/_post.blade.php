@@ -8,15 +8,13 @@
 
   {{-- OpenGraph --}}
   <meta property="og:type" content="article">
-  <meta property="og:title" content="{{ strip_tags($page->title) }}">
-  <meta property="og:description" content="{{ strip_tags($page->excerpt) }}">
+  <meta property="og:title" content="{{ strip_tags($page->title ?? '') }}">
+  <meta property="og:description" content="{{ strip_tags($page->excerpt ?? '') }}">
   <meta property="og:url" content="{{ $page->url }}">
   @if ($page->featured_image)
     <meta property="og:image" content="{{ $page->featured_image }}">
   @endif
 
-  {{-- Twitter --}}
-  <meta name="twitter:card" content="summary_large_image">
 @endsection
 
 @section('content')

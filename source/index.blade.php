@@ -158,25 +158,22 @@
       <h2 class="h2">Szolgáltatásaink</h2>
 
       <div class="service-list">
-        @php
-          $items = [
-            'Optometriai látásvizsgálat – Prolensz technológiával',
-            'Zeiss® | iProfiler Plus – Szemének vizuális lenyomata',
-            'Szemüvegkészítés saját műhelyünkben',
-            'Kontaktlencse-vizsgálat és illesztés',
-            'Glaukóma (zöldhályog) szűrés – Érintésmentes szemnyomásmérés',
-            'Fundusfotó – Szemfenékvizsgálat',
-            'Gyengénlátók segítése – speciális nagyítók és eszközök',
-            'Zeiss Visufit 1000 – 3D technológia a tökéletes lencsékhez',
-          ];
-        @endphp
+        @foreach ($page->services as $service)
+          <a
+            class="service-item"
+            href="/services/#{{ $service['slug'] ?? '' }}"
+          >
+            <span class="service-item__text">
+              {{ $service['title'] }}
+            </span>
 
-        @foreach($items as $text)
-          <a class="service-item" href="#">
-            <span class="service-item__text">{{ $text }}</span>
             <span class="service-item__go" aria-hidden="true">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18l6-6-6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 18l6-6-6-6"
+                      stroke="#043E6C"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
               </svg>
             </span>
           </a>
@@ -184,46 +181,15 @@
       </div>
     </div>
   </section>
+  
 
 
   {{-- RÓLUNK MONDTÁK --}}
-  {{-- <section class="testimonials">
-    <div class="container">
-      <h2 class="h2 testimonials__title">Rólunk mondták</h2>
 
-      <div class="testimonial-card">
-        <button class="t-nav t-nav--left" type="button" aria-label="Előző">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <div class="testimonial-card__content">
-          <p>
-            Régóta járok az optikai szalonba szemüveget készíttetni és vizsgálatra is! Proffesszionális vizsgálóeszközök megtámogatva magas szinvonalú szakmai tudással.Családias, kedves hangulat tölti be a helyet. A vizsgálat diszkrét, nyugodt környezetben zajlik. Nem is vizsgálat, hanem egy stratégia felépítèse folyik. Annyi minden szempontot kell figyelembe venni, hogy a végén már a páciens is úgy érzi, hogy ő is egy kicsit ért ehhez. Ez a vizsgálat alatt közérthető nyelven kapott információknak köszönhető. Egyszer, akinek szüksége van szemüvegre, mindenképpen próbálja ki! Legyen viszonyítási alapja, hogy mi a különbség szalon és szalon között!Köszönöm, hogy szerda késő délután ismét maximális elégedettséggel távozhattam tőletek!Nekem ez nagyon fontos, hiszen a látásom munka és vezetés közben a biztonságomat és mások biztonságát jelenti!
-          </p>
-          <div class="testimonial-card__name">Dóra László</div>
-
-          <div class="dots" aria-label="Lapozás">
-            <span class="dot dot--active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-
-        <button class="t-nav t-nav--right" type="button" aria-label="Következő">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="#043E6C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section> --}}
  <section class="testimonials">
   <div class="container">
     <h2 class="h2 testimonials__title">Rólunk mondták</h2>
+
 
     <div class="testimonial-card">
 
@@ -238,31 +204,31 @@
       </button>
 
       {{-- SLIDES --}}
-      @foreach ($testimonials as $index => $item)
-        <div
-          class="testimonial-card__content{{ $index === 0 ? ' is-active' : '' }}"
-          data-slide="{{ $index }}"
-        >
-          <div class="testimonial-card__text">
-            {!! $item['text'] !!}
-          </div>
-
-          @if (!empty($item['author']))
-            <div class="testimonial-card__name">
-              {{ $item['author'] }}
-            </div>
-          @endif
-
-          <div class="dots" aria-label="Lapozás">
-            @foreach ($testimonials as $dotIndex => $_)
-              <span
-                class="dot{{ $dotIndex === $index ? ' dot--active' : '' }}"
-                data-dot="{{ $dotIndex }}"
-              ></span>
-            @endforeach
-          </div>
+      @foreach ($page->testimonials as $index => $item)
+      <div
+        class="testimonial-card__content{{ $index === 0 ? ' is-active' : '' }}"
+        data-slide="{{ $index }}">
+        <div class="testimonial-card__text">
+          {!! $item['text'] !!}
         </div>
+
+        @if (!empty($item['author']))
+          <div class="testimonial-card__name">
+            {{ $item['author'] }}
+          </div>
+        @endif
+      </div>
+    @endforeach
+
+    {{-- DOTS--}}
+    <div class="dots" aria-label="Lapozás">
+      @foreach ($page->testimonials as $index => $_)
+        <span
+          class="dot{{ $index === 0 ? ' dot--active' : '' }}"
+          data-dot="{{ $index }}"
+        ></span>
       @endforeach
+    </div>
 
       <button class="t-nav t-nav--right" type="button" aria-label="Következő">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
@@ -281,4 +247,31 @@
 
 
 
+@endsection
+
+
+@section('script_tags')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OpticalStore",
+  "name": "3D Optika",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Szolgáltatások",
+    "itemListElement": [
+      @foreach ($page->services as $index => $service)
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "{{ strip_tags($service['title']) }}",
+          "description": "{{ strip_tags($service['content']) }}"
+        }
+      }@if (!$loop->last),@endif
+      @endforeach
+    ]
+  }
+}
+</script>
 @endsection

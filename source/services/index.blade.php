@@ -12,7 +12,7 @@
 <section class="cards">
   <div class="container">
 
-    @foreach ($services as $service)
+    @foreach ($page->services as $service)
       <article class="infoCard">
         <h2 class="infoCard__title">
           {!! $service['title'] !!}

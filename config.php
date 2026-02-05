@@ -19,6 +19,7 @@ return [
             'extends' => 'blog._post',
             'section' => 'content',
         ],
+    ],
         'services' => (function () {
             $path = __DIR__ . '/source/_data/services.json';
             if (!file_exists($path)) return [];
@@ -38,5 +39,5 @@ return [
             $data = json_decode(file_get_contents($path), true);
             return is_array($data) ? $data : [];
         })(),
-    ],
+    
 ];

@@ -1452,9 +1452,18 @@ body.is-nav-open {
   position: relative;
   padding: 26px 54px;
   text-align: center;
+  min-height: 290px;
 }
 .testimonials .testimonial-card__content {
   margin: 0 2.4rem;
+  display: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.testimonials .testimonial-card__content.is-active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 @media (max-width: 768px) {
   .testimonials .testimonial-card__content {

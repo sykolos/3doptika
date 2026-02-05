@@ -14,9 +14,18 @@
     position: relative
     padding: 26px 54px
     text-align: center
+    min-height: 290px
 
   .testimonial-card__content
     margin: 0 2.4rem
+    display: none
+    pointer-events: none
+    transition: opacity .3s ease
+
+    &.is-active 
+      display: block
+      opacity: 1
+      pointer-events: auto
 
     +mq(768px)
       margin: 0 auto

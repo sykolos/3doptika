@@ -6,7 +6,7 @@
   <h1 class="page-title">Gyakran ismételt kérdések</h1>
 
  <div class="faqList">
-  @foreach ($faq as $item)
+  @foreach ($page->faq as $item)
     <details class="faqItem">
       <summary class="faqItem__q">
         <span>{{ $item['question'] }}</span>
@@ -27,4 +27,25 @@
 
   </div>
 </section>
+@endsection
+
+@section('script_tags')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    @foreach ($page->faq as $index => $item)
+      {
+        "@type": "Question",
+        "name": "{{ strip_tags($item['question']) }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ strip_tags($item['answer']) }}"
+        }
+      }@if (!$loop->last),@endif
+    @endforeach
+  ]
+}
+</script>
 @endsection
