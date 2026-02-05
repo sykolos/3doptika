@@ -5,7 +5,7 @@ return [
     'baseUrl' => '',
     'title' => getenv('SITE_TITLE'),
     'siteName'=>getenv('SITE_NAME'),
-    'description' => 'Website description.',
+    'description' => 'Ahol a látás élménnyé válik!',
     'collections' => [
     // BLOG – JSON
         'posts' => [

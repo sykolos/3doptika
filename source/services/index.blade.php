@@ -46,9 +46,6 @@
        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/silhouette.svg" alt="Silhouette logó">
       </div>
       <div class="brandGrid__item">
-        <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/jaguar.svg" alt="Jaguar Eyewear logó">
-      </div>
-      <div class="brandGrid__item">
         <img class=" " src="{{ $page->baseUrl }}/assets/images/brands/titanflex.svg" alt="Titanflex logó">
       </div>
       <div class="brandGrid__item">
