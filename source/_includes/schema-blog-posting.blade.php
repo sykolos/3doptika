@@ -1,8 +1,4 @@
-@php
-  use Illuminate\Support\Str;
-@endphp
-
-@if (!empty($page->date) && Str::startsWith($page->getPath(), 'blog/'))
+@if (!empty($page->date) && !empty($page->author))
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -16,7 +12,7 @@
   "dateModified": "{{ $page->date }}",
   "author": {
     "@type": "Person",
-    "name": "{{ $page->author ?? '3D Optika' }}"
+    "name": "{{ $page->author }}"
   },
   "publisher": {
     "@type": "Organization",
