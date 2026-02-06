@@ -74,6 +74,8 @@
   display: flex
   align-items: center
   gap: 2.4rem
+  +mq(1250px)
+    gap: 1.6rem
 
 .site-nav__menu
   display: flex
@@ -81,6 +83,10 @@
   list-style: none
   margin: 0
   padding: 0
+  +mq(1250px)
+    gap: 1rem
+  +mq(1000px)
+    gap: 0rem
 
   a
     text-decoration: none
@@ -88,14 +94,33 @@
     font-weight: 400
     color: $blue
     opacity: .85
+  
+    +mq(1250px)
+        font-size: 1.4rem !important
+        padding: 1rem !important
+    +mq(1000px)
+      font-size: 1.2rem !important
+      padding: 0.5rem !important
 
   a:hover
     opacity: 1
 
 .site-nav__cta
-  display: inline-flex
-  align-items: center
-  gap: 1.8rem
+  +mq(768px)
+    display: none
+
+.btn--primary.site-nav__cta
+  +mq(1250px)
+    font-size: 1.4rem !important
+    padding: 10px 20px !important
+    white-space: nowrap
+    img
+      display: none
+  +mq(1000px)
+    font-size: 1.2rem !important    
+
+  +mq(768px)
+    display: none
 
 @function circumference($r)
   $pi: 3.141592653
@@ -165,7 +190,8 @@
 
     &:hover, &:focus
       outline: 0
-      background-color:  rgba(0, 0, 0, .2)      
+      background-color:  rgba(0, 0, 0, .2)
+    
 
   .mobile-cta-btn
     text-transform: lowercase

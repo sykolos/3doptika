@@ -1,4 +1,4 @@
-@if (!empty($page->date) && !empty($page->author))
+@if (isset($page->author) && isset($page->date))
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
