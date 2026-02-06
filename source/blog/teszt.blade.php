@@ -8,6 +8,10 @@ featured_image: https://admin.3doptika.hu/wp-content/uploads/2026/02/3doptika_fr
 
 @extends('_layouts.main')
 
+@section('head')
+  @include('_includes.schema-blog-posting')
+@endsection
+
 @section('content')
 
 <section class="pageHead">

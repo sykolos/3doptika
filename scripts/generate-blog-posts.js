@@ -29,6 +29,10 @@ featured_image: ${post.featured_image || ''}
 
 @extends('_layouts.main')
 
+@section('head')
+  @include('_includes.schema-blog-posting')
+@endsection
+
 @section('content')
 
 <section class="pageHead">
