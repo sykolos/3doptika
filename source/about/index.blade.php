@@ -69,7 +69,7 @@
           loading="lazy"
         >
         <div class="teamCard__name">Attila</div>
-        <div class="teamCard__role">Optometrista-kontaktológus <br> látszerés</div>
+        <div class="teamCard__role">Optometrista-kontaktológus <br> látszerész</div>
       </article>
 
       <article class="teamCard">
