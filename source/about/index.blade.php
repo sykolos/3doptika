@@ -20,12 +20,12 @@
 
       <div class="aboutIntro__text">
         <p>
-          Bőröcz Mari vagyok, több mint 40 éve dolgozom a szakmában optikus–látszerészként,
+          Böröcz Mari vagyok, több mint 40 éve dolgozom a szakmában optikus–látszerészként,
           1993-tól felsőfokú optometristaként segítem pácienseinket.
         </p>
 
         <p>
-          2013-ban megalapítottuk a 3D Optikát fiammal, Bőröcz Attilával, aki a Semmelweis Egyetemen
+          2013-ban megalapítottuk a 3D Optikát fiammal, Böröcz Attilával, aki a Semmelweis Egyetemen
           szerzett diplomát optometrista szakon.
         </p>
 
@@ -69,7 +69,7 @@
           loading="lazy"
         >
         <div class="teamCard__name">Attila</div>
-        <div class="teamCard__role">Optometrista-kontaktológus</div>
+        <div class="teamCard__role">Optometrista-kontaktológus <br> látszerés</div>
       </article>
 
       <article class="teamCard">

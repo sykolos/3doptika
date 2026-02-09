@@ -127,7 +127,7 @@
           <li>
             <span class="checklist__icon" aria-hidden="true"></span>
             <div>
-              <strong>Kiszerviz a helyszínen</strong><br>
+              <strong>Kisszerviz a helyszínen</strong><br>
               Elhasználódott otthoni szemüvegkeret csere.
             </div>
           </li>

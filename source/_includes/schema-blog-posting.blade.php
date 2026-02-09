@@ -1,3 +1,5 @@
+<!-- MAIN LAYOUT HEAD -->
+
 @if (isset($page->author) && isset($page->date))
 <script type="application/ld+json">
 {

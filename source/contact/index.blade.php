@@ -68,7 +68,7 @@
         <div class="hoursRow"><span>szerda:</span>9:00–17:30</div>
         <div class="hoursRow"><span>csütörtök:</span>9:00–17:30</div>
         <div class="hoursRow"><span>péntek:</span>9:00–17:30</div>
-        <div class="hoursRow"><span>szombat:</span>8–12</div>
+        <div class="hoursRow"><span>szombat:</span>8:00–12:00</div>
         <div class="hoursRow"><span>vasárnap:</span>zárva</div>
       </div>
     </div>
@@ -85,7 +85,7 @@
     <ul class="cardPay__list">
       <li>OTP</li>
       <li>Prémium</li>
-      <li>MBH</li>
+      <li>(MBH) Gondoskodás</li>
       <li>Patika / Új Pillér</li>
       <li class="cardPay__note">Az összes többi egészségpénztárnak számlát állítunk ki!</li>
     </ul>

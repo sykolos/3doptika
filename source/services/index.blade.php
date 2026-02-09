@@ -36,7 +36,7 @@
 
 <section class="brands">
   <div class="container">
-    <h2 class="h2 brand-title">Forgalmazott márkáink</h2>
+    <h2 class="h2 brand-title">Forgalmazott főbb márkáink</h2>
 
     <div class="brandGrid">
       <div class="brandGrid__item">
