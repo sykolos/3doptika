@@ -3,7 +3,7 @@ title: Teszt blog poszt
 description: 
 date: 2026-02-09T21:44:01
 author: admin
-featured_image: 
+featured_image: https://admin.3doptika.hu/wp-content/uploads/2026/02/IMG_59361.jpg
 ---
 
 @extends('_layouts.main')
@@ -30,6 +30,10 @@ featured_image:
         <span class="author">admin</span>
       </div>
 
+      
+      <figure class="post-image">
+        <img src="https://admin.3doptika.hu/wp-content/uploads/2026/02/IMG_59361.jpg" alt="Teszt blog poszt">
+      </figure>
       
 
       <div class="post-content">
