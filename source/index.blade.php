@@ -193,7 +193,7 @@
 
     <div class="testimonial-card">
 
-      <button class="t-nav t-nav--left" type="button" aria-label="Előző">
+      <button class="t-nav t-nav__left" type="button" aria-label="Előző">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
           <path d="M15 18l-6-6 6-6"
                 stroke="#043E6C"
@@ -230,7 +230,7 @@
       @endforeach
     </div>
 
-      <button class="t-nav t-nav--right" type="button" aria-label="Következő">
+      <button class="t-nav t-nav__right" type="button" aria-label="Következő">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
           <path d="M9 18l6-6-6-6"
                 stroke="#043E6C"
