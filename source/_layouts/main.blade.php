@@ -4,7 +4,7 @@
         <!-- MAIN LAYOUT HEAD -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="canonical" href="{{ $page->getUrl() }}">
+        <link rel="canonical" href="{{ url($page->getUrl()) }}">
         <meta name="description" content="{{ $page->description }}">
         @yield('script_tags')
         <title>{{ $page->title }}</title>

@@ -9,18 +9,16 @@ return [
     'collections' => [
         'posts' => [
             'items' => function () {
-            return collect(
-                json_decode(
-                file_get_contents(__DIR__ . '/source/_data/posts.json'),
-                true
-                )
-            );
+                return collect(
+                    json_decode(
+                        file_get_contents(__DIR__ . '/source/_data/posts.json'),
+                        true
+                    )
+                );
             },
+            'sort' => '-date',
         ],
         ],
-
-
-
         'services' => (function () {
             $path = __DIR__ . '/source/_data/services.json';
             if (!file_exists($path)) return [];

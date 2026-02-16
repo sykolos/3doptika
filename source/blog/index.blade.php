@@ -1,3 +1,9 @@
+---
+pagination:
+  collection: posts
+  perPage: 6
+---
+
 @extends('_layouts.main')
 
 @section('content')
@@ -11,7 +17,7 @@
 <section class="cards">
   <div class="container">
 
-    @forelse ($posts as $post)
+    @forelse ($pagination->items as $post)
       <article class="infoCard infoCard--blog">
 
       @if ($post->featured_image)
@@ -46,6 +52,17 @@
         <p>Hamarosan friss tartalommal jelentkezünk.</p>
       </div>
     @endforelse
+
+    {{-- Pagination navigation --}}
+    <div class="pagination">
+      @if ($pagination->previous)
+        <a href="{{ $pagination->previous }}">← Előző oldal</a>
+      @endif
+
+      @if ($pagination->next)
+        <a href="{{ $pagination->next }}">Következő oldal →</a>
+      @endif
+    </div>
 
   </div>
 </section>
