@@ -39,6 +39,7 @@
 
   <ul class="mobile-nav__menu" id="mobile-menu" 
   tabindex="-1" aria-label="mobil menu" hidden>
+    <li class="mobile-nav__item"><a href="/">főoldal</a></li>
     <li class="mobile-nav__item"><a href="/about">rólunk</a></li>
     <li class="mobile-nav__item"><a href="/services">szolgáltatásaink</a></li>
     <li class="mobile-nav__item"><a href="#">blog</a></li>

@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
+    <!-- Favicon -->
+<link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+
+<!-- Apple -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+
+<!-- PWA -->
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+<meta name="theme-color" content="#ffffff">
+
     <link rel="canonical" href="{{ $page->baseUrl }}{{ $page->getUrl() }}">
     <title>
         {{ $page->title ?? trim($__env->yieldContent('title')) ?? '3D Optika Vác' }}
