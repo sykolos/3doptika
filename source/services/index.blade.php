@@ -88,3 +88,22 @@
   </div>
 </section>
 @endsection
+
+@section('script_tags')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    @foreach ($page->services as $index => $service)
+    {
+      "@type": "Service",
+      "name": "{{ strip_tags($service['title']) }}",
+      "description": "{{ strip_tags($service->content ?? '') }}",
+      "position": {{ $index + 1 }}
+    }@if(!$loop->last),@endif
+    @endforeach
+  ]
+}
+</script>
+@endsection

@@ -2,8 +2,7 @@
 
 return [
     'production' => false,
-    'baseUrl' => '',
-    'title' => getenv('SITE_TITLE'),
+    'baseUrl' => 'https://3doptika.hu',
     'siteName'=>getenv('SITE_NAME'),
     'description' => 'Ahol a látás élménnyé válik!',
     'collections' => [

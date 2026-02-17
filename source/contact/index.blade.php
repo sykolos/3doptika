@@ -94,3 +94,14 @@
 </section>
 
 @endsection
+
+@section('script_tags')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Kapcsolat – 3D Optika",
+  "url": "https://3doptika.hu/kapcsolat"
+}
+</script>
+@endsection

@@ -1,5 +1,6 @@
 @extends('_layouts.main')
 
+@section('title', 'Gyakran ismételt kérdések')
 @section('content')
 <section class="faqPage">
   <div class="container">
@@ -49,3 +50,4 @@
 }
 </script>
 @endsection
+

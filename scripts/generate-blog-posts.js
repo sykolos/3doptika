@@ -5,11 +5,28 @@ const path = require('path');
 const postsPath = path.resolve(__dirname, '../source/_data/posts.json');
 const outputDir = path.resolve(__dirname, '../source/blog');
 
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
+// Segédfüggvények
+function stripHtml(html) {
+  return html.replace(/<[^>]*>/g, '');
 }
 
+function cleanText(str) {
+  return str
+    .replace(/\s+/g, ' ')
+    .replace(/"/g, "'")
+    .trim();
+}
+
+// JSON beolvasás
 const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+
+// Régi blog mappa törlése
+if (fs.existsSync(outputDir)) {
+  fs.rmSync(outputDir, { recursive: true, force: true });
+}
+
+// Újramappa létrehozása
+fs.mkdirSync(outputDir, { recursive: true });
 
 posts.forEach(post => {
   if (!post.slug) {
@@ -19,11 +36,27 @@ posts.forEach(post => {
 
   const filePath = path.join(outputDir, `${post.slug}.blade.php`);
 
+  const metaTitle = cleanText(post.meta_title || post.title);
+
+  let rawDescription =
+    post.meta_description ||
+    post.excerpt ||
+    post.content ||
+    '';
+
+  rawDescription = stripHtml(rawDescription);
+  rawDescription = cleanText(rawDescription);
+
+  const metaDescription =
+    rawDescription.length > 0
+      ? rawDescription.substring(0, 160)
+      : post.title;
+
   const content = `---
-title: ${post.meta_title || post.title}
-description: ${post.meta_description || ''}
+title: "${metaTitle}"
+description: "${metaDescription}"
 date: ${post.date}
-author: ${post.author}
+author: ${post.author || '3D Optika'}
 featured_image: ${post.featured_image || ''}
 ---
 
@@ -48,7 +81,7 @@ featured_image: ${post.featured_image || ''}
 
       <div class="post-meta">
         <span class="date">${post.date}</span>
-        <span class="author">${post.author}</span>
+        <span class="author">${post.author || '3D Optika'}</span>
       </div>
 
       ${post.featured_image ? `
@@ -58,7 +91,7 @@ featured_image: ${post.featured_image || ''}
       ` : ''}
 
       <div class="post-content">
-        ${post.content}
+        ${post.content || ''}
       </div>
 
     </article>

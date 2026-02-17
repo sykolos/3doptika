@@ -1,6 +1,6 @@
 @extends('_layouts.main')
 
-@section('title', '3D Optika')
+@section('title', 'Fóoldal')
 
 @section('content')
 
@@ -249,29 +249,43 @@
 
 @endsection
 
-
 @section('script_tags')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "OpticalStore",
-  "name": "3D Optika",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Szolgáltatások",
-    "itemListElement": [
-      @foreach ($page->services as $index => $service)
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "{{ strip_tags($service['title']) }}",
-          "description": "{{ strip_tags($service['content']) }}"
-        }
-      }@if (!$loop->last),@endif
-      @endforeach
-    ]
-  }
-}
+@php
+echo json_encode([
+  "@context" => "https://schema.org",
+  "@type" => "OpticalStore",
+  "name" => "3D Optika",
+  "url" => "https://3doptika.hu",
+  "telephone" => "+36304285041",
+  "address" => [
+      "@type" => "PostalAddress",
+      "streetAddress" => "Dr. Csányi László krt. 42.",
+      "addressLocality" => "Vác",
+      "postalCode" => "2600",
+      "addressCountry" => "HU"
+  ],
+  "openingHours" => "Mo-Fr 09:00-17:30",
+  "sameAs" => [
+      "https://maps.app.goo.gl/fCmHAjTPPhfJQ98j6"
+  ],
+  "hasOfferCatalog" => [
+      "@type" => "OfferCatalog",
+      "name" => "Szolgáltatások",
+      "itemListElement" => array_map(function($service) {
+          return [
+              "@type" => "Offer",
+              "itemOffered" => [
+                  "@type" => "Service",
+                  "name" => strip_tags($service->title ?? ''),
+                  "description" => strip_tags($service->content ?? ''),
+              ]
+          ];
+      }, (array) $page->services)
+  ]
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+@endphp
 </script>
 @endsection
+
+
