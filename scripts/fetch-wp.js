@@ -13,7 +13,13 @@ export async function fetchWp({
   let data;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': '3DOptika-Build-Bot'
+      }
+    });
+
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
