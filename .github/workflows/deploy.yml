@@ -30,12 +30,11 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
-      - name: Fetch WP data + Generate blog + Build
-        run: |
-          npm run fetch
-          node scripts/generate-blog-posts.js
-          npm run prod
-          ./vendor/bin/jigsaw build production
+      - name: Build assets (Mix)
+        run: npm run prod
+
+      - name: Build Jigsaw (production)
+        run: ./vendor/bin/jigsaw build production
 
       - name: Prepare SSH known_hosts
         run: |
@@ -68,6 +67,7 @@ jobs:
 
           tar -C build_production -czf site.tgz .
 
+          # SCP jelszóval (kulcs tiltva, jelszó preferálva)
           sshpass -p "$SSH_PASSWORD" scp -P "$PORT" \
             -o StrictHostKeyChecking=yes \
             -o PubkeyAuthentication=no \
@@ -75,6 +75,7 @@ jobs:
             -o NumberOfPasswordPrompts=1 \
             site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
 
+          # SSH jelszóval
           sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" \
             -o StrictHostKeyChecking=yes \
             -o PubkeyAuthentication=no \
