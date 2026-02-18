@@ -30,26 +30,22 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
-      - name: Build assets (Mix)
-        run: npm run prod
-      
+      # 👇 FONTOS: fetch külön lépésben
       - name: Fetch WP data
         run: npm run fetch
 
+      - name: Build assets (Mix)
+        run: npm run prod
+
       - name: Build Jigsaw (production)
         run: ./vendor/bin/jigsaw build production
-
-      - name: Prepare SSH known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          touch ~/.ssh/known_hosts
 
       - name: Install sshpass
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass
 
-      - name: Deploy via password SSH+SCP
+      - name: Deploy via SSH
         env:
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
@@ -57,12 +53,12 @@ jobs:
             HOST="${{ secrets.STAGING_HOST }}"
             USER="${{ secrets.STAGING_USER }}"
             PORT="${{ secrets.STAGING_PORT }}"
-            PATH_ON_SERVER="${{ secrets.STAGING_PATH }}"
+            TARGET_PATH="${{ secrets.STAGING_PATH }}"
           else
             HOST="${{ secrets.PROD_HOST }}"
             USER="${{ secrets.PROD_USER }}"
             PORT="${{ secrets.PROD_PORT }}"
-            PATH_ON_SERVER="${{ secrets.PROD_PATH }}"
+            TARGET_PATH="${{ secrets.PROD_PATH }}"
           fi
 
           mkdir -p ~/.ssh
@@ -70,18 +66,11 @@ jobs:
 
           tar -C build_production -czf site.tgz .
 
-          # SCP jelszóval (kulcs tiltva, jelszó preferálva)
-          sshpass -p "$SSH_PASSWORD" scp -P "$PORT" \
-            -o StrictHostKeyChecking=yes \
-            -o PubkeyAuthentication=no \
-            -o PreferredAuthentications=password,keyboard-interactive \
-            -o NumberOfPasswordPrompts=1 \
-            site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
+          sshpass -p "$SSH_PASSWORD" scp -P "$PORT" site.tgz "$USER@$HOST:$TARGET_PATH/site.tgz"
 
-          # SSH jelszóval
-          sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" \
-            -o StrictHostKeyChecking=yes \
-            -o PubkeyAuthentication=no \
-            -o PreferredAuthentications=password,keyboard-interactive \
-            -o NumberOfPasswordPrompts=1 \
-            "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
+          sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" "$USER@$HOST" "
+            cd '$TARGET_PATH' &&
+            find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + &&
+            tar -xzf site.tgz &&
+            rm site.tgz
+          "

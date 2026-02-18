@@ -6,7 +6,6 @@ pagination:
 
 @extends('_layouts.main')
 
-@section('title', 'Blog')
 @section('content')
 
 <section class="pageHead">

@@ -5,38 +5,76 @@ const path = require('path');
 const postsPath = path.resolve(__dirname, '../source/_data/posts.json');
 const outputDir = path.resolve(__dirname, '../source/blog');
 
+// -----------------------------
 // Segédfüggvények
-function stripHtml(html) {
+// -----------------------------
+
+function stripHtml(html = '') {
   return html.replace(/<[^>]*>/g, '');
 }
 
-function cleanText(str) {
+function cleanText(str = '') {
   return str
     .replace(/\s+/g, ' ')
     .replace(/"/g, "'")
     .trim();
 }
 
-// JSON beolvasás
-const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+// -----------------------------
+// JSON betöltés biztonságosan
+// -----------------------------
 
-// Régi blog mappa törlése
-if (fs.existsSync(outputDir)) {
-  fs.rmSync(outputDir, { recursive: true, force: true });
+if (!fs.existsSync(postsPath)) {
+  console.warn('⚠️ posts.json nem található.');
+  process.exit(0);
 }
 
-// Újramappa létrehozása
-fs.mkdirSync(outputDir, { recursive: true });
+let posts = [];
+
+try {
+  posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+} catch (err) {
+  console.error('❌ posts.json parse hiba:', err.message);
+  process.exit(1);
+}
+
+if (!Array.isArray(posts)) {
+  console.warn('⚠️ posts.json nem tömb.');
+  process.exit(0);
+}
+
+// -----------------------------
+// Blog mappa előkészítés
+// -----------------------------
+
+// Ha nincs mappa, hozzuk létre
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Csak a generált blade fájlokat töröljük
+fs.readdirSync(outputDir).forEach(file => {
+  if (
+    file.endsWith('.blade.php') &&
+    file !== 'index.blade.php'
+  ) {
+    fs.unlinkSync(path.join(outputDir, file));
+  }
+});
+
+// -----------------------------
+// Post fájlok generálása
+// -----------------------------
 
 posts.forEach(post => {
   if (!post.slug) {
-    console.warn('⛔ Skipped post without slug:', post);
+    console.warn('⛔ Slug nélküli post kihagyva:', post);
     return;
   }
 
   const filePath = path.join(outputDir, `${post.slug}.blade.php`);
 
-  const metaTitle = cleanText(post.meta_title || post.title);
+  const metaTitle = cleanText(post.meta_title || post.title || '');
 
   let rawDescription =
     post.meta_description ||
@@ -44,13 +82,12 @@ posts.forEach(post => {
     post.content ||
     '';
 
-  rawDescription = stripHtml(rawDescription);
-  rawDescription = cleanText(rawDescription);
+  rawDescription = cleanText(stripHtml(rawDescription));
 
   const metaDescription =
     rawDescription.length > 0
       ? rawDescription.substring(0, 160)
-      : post.title;
+      : metaTitle;
 
   const content = `---
 title: "${metaTitle}"
@@ -70,7 +107,7 @@ featured_image: ${post.featured_image || ''}
 
 <section class="pageHead">
   <div class="container">
-    <h1 class="page-title">${post.title}</h1>
+    <h1 class="page-title">${post.title || ''}</h1>
   </div>
 </section>
 
@@ -80,7 +117,7 @@ featured_image: ${post.featured_image || ''}
     <article class="infoCard infoCard--post">
 
       <div class="post-meta">
-        <span class="date">${post.date}</span>
+        <span class="date">${post.date || ''}</span>
         <span class="author">${post.author || '3D Optika'}</span>
       </div>
 
