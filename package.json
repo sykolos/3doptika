@@ -7,7 +7,7 @@
         "prod": "mix --production",
         "production": "npm run prod",
         "fetch": "node scripts/fetch-wp-posts.js && node scripts/fetch-wp-services.js && node scripts/fetch-wp-faq.js && node scripts/fetch-wp-testimonials.js",
-        "build": "npm run fetch && node scripts/generate-blog-posts.js && npm run prod && jigsaw build"
+        "build": "npm run fetch && node scripts/generate-blog-posts.js && npm run prod && ./vendor/bin/jigsaw build production"
 },
     "devDependencies": {
         "laravel-mix": "^6.0.39",
