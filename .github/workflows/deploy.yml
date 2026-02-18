@@ -32,6 +32,9 @@ jobs:
 
       - name: Build assets (Mix)
         run: npm run prod
+      
+      - name: Fetch WP data
+        run: npm run fetch
 
       - name: Build Jigsaw (production)
         run: ./vendor/bin/jigsaw build production
