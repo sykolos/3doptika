@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
           cache: "npm"
 
       - name: Install PHP deps
@@ -29,14 +29,17 @@ jobs:
 
       - name: Install Node deps
         run: npm ci
-      - name: Check source blog before build
+
+      - name: Build assets (Mix)
+        run: npm run prod
+
+      - name: Build Jigsaw (production)
+        run: ./vendor/bin/jigsaw build production
+
+      - name: Prepare SSH known_hosts
         run: |
-          echo "SOURCE BLOG CONTENT:"
-          ls -la source/blog
-
-
-      - name: Full build
-        run: npm run build
+          mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
 
       - name: Install sshpass
         run: |
@@ -64,11 +67,18 @@ jobs:
 
           tar -C build_production -czf site.tgz .
 
-          sshpass -p "$SSH_PASSWORD" scp -P "$PORT" site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
+          # SCP jelszóval (kulcs tiltva, jelszó preferálva)
+          sshpass -p "$SSH_PASSWORD" scp -P "$PORT" \
+            -o StrictHostKeyChecking=yes \
+            -o PubkeyAuthentication=no \
+            -o PreferredAuthentications=password,keyboard-interactive \
+            -o NumberOfPasswordPrompts=1 \
+            site.tgz "$USER@$HOST:$PATH_ON_SERVER/site.tgz"
 
-          sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" "$USER@$HOST" "
-            cd '$PATH_ON_SERVER' &&
-            find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + &&
-            tar -xzf site.tgz &&
-            rm site.tgz
-          "
+          # SSH jelszóval
+          sshpass -p "$SSH_PASSWORD" ssh -p "$PORT" \
+            -o StrictHostKeyChecking=yes \
+            -o PubkeyAuthentication=no \
+            -o PreferredAuthentications=password,keyboard-interactive \
+            -o NumberOfPasswordPrompts=1 \
+            "$USER@$HOST" "cd '$PATH_ON_SERVER' && find . -mindepth 1 -maxdepth 1 ! -name 'site.tgz' -exec rm -rf {} + && tar -xzf site.tgz && rm site.tgz"
