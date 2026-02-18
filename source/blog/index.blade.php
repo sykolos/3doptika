@@ -1,4 +1,6 @@
 ---
+title: Blog
+description: Blog oldal
 ---
 
 @extends('_layouts.main')
