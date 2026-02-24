@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const accept = document.getElementById("accept-cookies")
     const reject = document.getElementById("reject-cookies")
 
+    if (!banner || !accept || !reject) return
+
     const consent = localStorage.getItem("cookie_consent")
 
     if (!consent) {
@@ -91,16 +93,4 @@ document.addEventListener("DOMContentLoaded", function () {
         banner.classList.remove("active")
     })
 
-
-    function loadAnalytics() {
-        const script = document.createElement("script");
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
-        script.async = true;
-        document.head.appendChild(script);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX');
-    }
-});
+})

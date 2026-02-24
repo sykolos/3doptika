@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var banner = document.querySelector(".cookie-banner");
   var accept = document.getElementById("accept-cookies");
   var reject = document.getElementById("reject-cookies");
+  if (!banner || !accept || !reject) return;
   var consent = localStorage.getItem("cookie_consent");
   if (!consent) {
     banner.classList.add("active");
@@ -83,18 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cookie_consent", "rejected");
     banner.classList.remove("active");
   });
-  function loadAnalytics() {
-    var script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
-    script.async = true;
-    document.head.appendChild(script);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  }
 });
 
 /***/ },
