@@ -1731,6 +1731,9 @@ body.is-nav-open {
   cursor: pointer;
   font-weight: 600;
   font-size: 1.3rem;
+  letter-spacing: -2%;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  border-radius: 12px;
 }
 .cookie-banner #accept-cookies {
   background: #2ecc71;
