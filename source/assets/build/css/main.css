@@ -1717,6 +1717,9 @@ body.is-nav-open {
   gap: 1rem;
   font-size: 1.2rem;
 }
+.cookie-banner.active {
+  display: flex;
+}
 .cookie-banner p {
   color: #fff;
 }

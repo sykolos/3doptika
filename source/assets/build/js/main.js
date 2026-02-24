@@ -68,24 +68,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  var banner = document.getElementById("cookie-banner");
-  var acceptBtn = document.getElementById("accept-cookies");
-  var rejectBtn = document.getElementById("reject-cookies");
+  var banner = document.querySelector(".cookie-banner");
+  var accept = document.getElementById("accept-cookies");
+  var reject = document.getElementById("reject-cookies");
   var consent = localStorage.getItem("cookie_consent");
   if (!consent) {
-    banner.style.display = "block";
+    banner.classList.add("active");
   }
-  if (consent === "accepted") {
-    loadAnalytics();
-  }
-  acceptBtn.addEventListener("click", function () {
+  accept.addEventListener("click", function () {
     localStorage.setItem("cookie_consent", "accepted");
-    banner.style.display = "none";
-    loadAnalytics();
+    banner.classList.remove("active");
   });
-  rejectBtn.addEventListener("click", function () {
+  reject.addEventListener("click", function () {
     localStorage.setItem("cookie_consent", "rejected");
-    banner.style.display = "none";
+    banner.classList.remove("active");
   });
   function loadAnalytics() {
     var script = document.createElement("script");

@@ -70,30 +70,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById("cookie-banner");
-    const acceptBtn = document.getElementById("accept-cookies");
-    const rejectBtn = document.getElementById("reject-cookies");
 
-    const consent = localStorage.getItem("cookie_consent");
+    const banner = document.querySelector(".cookie-banner")
+    const accept = document.getElementById("accept-cookies")
+    const reject = document.getElementById("reject-cookies")
+
+    const consent = localStorage.getItem("cookie_consent")
 
     if (!consent) {
-        banner.style.display = "block";
+        banner.classList.add("active")
     }
 
-    if (consent === "accepted") {
-        loadAnalytics();
-    }
+    accept.addEventListener("click", function () {
+        localStorage.setItem("cookie_consent", "accepted")
+        banner.classList.remove("active")
+    })
 
-    acceptBtn.addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "accepted");
-        banner.style.display = "none";
-        loadAnalytics();
-    });
+    reject.addEventListener("click", function () {
+        localStorage.setItem("cookie_consent", "rejected")
+        banner.classList.remove("active")
+    })
 
-    rejectBtn.addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "rejected");
-        banner.style.display = "none";
-    });
 
     function loadAnalytics() {
         const script = document.createElement("script");
