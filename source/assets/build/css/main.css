@@ -1711,7 +1711,6 @@ body.is-nav-open {
   padding: 1.2rem 2rem;
   display: none;
   z-index: 9999;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;

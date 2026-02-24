@@ -37,54 +37,67 @@ if (mobileNav && menu && toggle) {
     });
   });
 }
-document.addEventListener('DOMContentLoaded', function () {
-  var slides = document.querySelectorAll('.testimonial-card__content');
-  if (!slides.length) return;
-  var dots = document.querySelectorAll('.dot');
-  var prev = document.querySelector('.t-nav--left');
-  var next = document.querySelector('.t-nav--right');
-  var current = 0;
-  function showSlide(index) {
+
+// =============================
+// TESTIMONIALS
+// =============================
+
+var slides = document.querySelectorAll('.testimonial-card__content');
+if (slides.length) {
+  var showSlide = function showSlide(index) {
+    var _slides$index, _dots$index;
     slides.forEach(function (s) {
       return s.classList.remove('is-active');
     });
     dots.forEach(function (d) {
       return d.classList.remove('dot--active');
     });
-    slides[index].classList.add('is-active');
-    dots[index].classList.add('dot--active');
+    (_slides$index = slides[index]) === null || _slides$index === void 0 || _slides$index.classList.add('is-active');
+    (_dots$index = dots[index]) === null || _dots$index === void 0 || _dots$index.classList.add('dot--active');
     current = index;
+  };
+  var dots = document.querySelectorAll('.dot');
+  var prev = document.querySelector('.t-nav__left');
+  var next = document.querySelector('.t-nav__right');
+  var current = 0;
+  if (prev) {
+    prev.addEventListener('click', function () {
+      showSlide((current - 1 + slides.length) % slides.length);
+    });
   }
-  prev.addEventListener('click', function () {
-    showSlide((current - 1 + slides.length) % slides.length);
-  });
-  next.addEventListener('click', function () {
-    showSlide((current + 1) % slides.length);
-  });
+  if (next) {
+    next.addEventListener('click', function () {
+      showSlide((current + 1) % slides.length);
+    });
+  }
   dots.forEach(function (dot, i) {
     dot.addEventListener('click', function () {
       return showSlide(i);
     });
   });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  var banner = document.querySelector(".cookie-banner");
-  var accept = document.getElementById("accept-cookies");
-  var reject = document.getElementById("reject-cookies");
-  if (!banner || !accept || !reject) return;
-  var consent = localStorage.getItem("cookie_consent");
+}
+
+// =============================
+// COOKIE BANNER
+// =============================
+
+var banner = document.querySelector('.cookie-banner');
+var accept = document.getElementById('accept-cookies');
+var reject = document.getElementById('reject-cookies');
+if (banner && accept && reject) {
+  var consent = localStorage.getItem('cookie_consent');
   if (!consent) {
-    banner.classList.add("active");
+    banner.classList.add('active');
   }
-  accept.addEventListener("click", function () {
-    localStorage.setItem("cookie_consent", "accepted");
-    banner.classList.remove("active");
+  accept.addEventListener('click', function () {
+    localStorage.setItem('cookie_consent', 'accepted');
+    banner.classList.remove('active');
   });
-  reject.addEventListener("click", function () {
-    localStorage.setItem("cookie_consent", "rejected");
-    banner.classList.remove("active");
+  reject.addEventListener('click', function () {
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.classList.remove('active');
   });
-});
+}
 
 /***/ },
 

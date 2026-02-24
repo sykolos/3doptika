@@ -37,13 +37,17 @@ if (mobileNav && menu && toggle) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.testimonial-card__content');
-  if (!slides.length) return;
+// =============================
+// TESTIMONIALS
+// =============================
+
+const slides = document.querySelectorAll('.testimonial-card__content');
+
+if (slides.length) {
 
   const dots = document.querySelectorAll('.dot');
-  const prev = document.querySelector('.t-nav--left');
-  const next = document.querySelector('.t-nav--right');
+  const prev = document.querySelector('.t-nav__left');
+  const next = document.querySelector('.t-nav__right');
 
   let current = 0;
 
@@ -53,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides[index]?.classList.add('is-active');
     dots[index]?.classList.add('dot--active');
+
     current = index;
   }
 
@@ -71,30 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => showSlide(i));
   });
-});
+}
 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const banner = document.querySelector(".cookie-banner")
-    const accept = document.getElementById("accept-cookies")
-    const reject = document.getElementById("reject-cookies")
+// =============================
+// COOKIE BANNER
+// =============================
 
-    if (!banner || !accept || !reject) return
+const banner = document.querySelector('.cookie-banner');
+const accept = document.getElementById('accept-cookies');
+const reject = document.getElementById('reject-cookies');
 
-    const consent = localStorage.getItem("cookie_consent")
+if (banner && accept && reject) {
 
-    if (!consent) {
-        banner.classList.add("active")
-    }
+  const consent = localStorage.getItem('cookie_consent');
 
-    accept.addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "accepted")
-        banner.classList.remove("active")
-    })
+  if (!consent) {
+    banner.classList.add('active');
+  }
 
-    reject.addEventListener("click", function () {
-        localStorage.setItem("cookie_consent", "rejected")
-        banner.classList.remove("active")
-    })
+  accept.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'accepted');
+    banner.classList.remove('active');
+  });
 
-})
+  reject.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.classList.remove('active');
+  });
+}
