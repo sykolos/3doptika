@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slides.forEach(s => s.classList.remove('is-active'));
     dots.forEach(d => d.classList.remove('dot--active'));
 
-    slides[index].classList.add('is-active');
+    slides[index]?.classList.add('is-active');
     dots[index]?.classList.add('dot--active');
     current = index;
   }
