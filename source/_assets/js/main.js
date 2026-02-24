@@ -68,3 +68,42 @@ document.addEventListener('DOMContentLoaded', () => {
     dot.addEventListener('click', () => showSlide(i));
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const rejectBtn = document.getElementById("reject-cookies");
+
+    const consent = localStorage.getItem("cookie_consent");
+
+    if (!consent) {
+        banner.style.display = "block";
+    }
+
+    if (consent === "accepted") {
+        loadAnalytics();
+    }
+
+    acceptBtn.addEventListener("click", function () {
+        localStorage.setItem("cookie_consent", "accepted");
+        banner.style.display = "none";
+        loadAnalytics();
+    });
+
+    rejectBtn.addEventListener("click", function () {
+        localStorage.setItem("cookie_consent", "rejected");
+        banner.style.display = "none";
+    });
+
+    function loadAnalytics() {
+        const script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    }
+});

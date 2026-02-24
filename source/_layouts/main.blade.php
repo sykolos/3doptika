@@ -48,6 +48,18 @@
     </main>
 
     @include('_includes.callback-form')
+
+    <div class="cookie-banner">
+    <p>
+        Weboldalunk sütiket használ a jobb felhasználói élmény érdekében. A sütik használatával Ön beleegyezik a sütik használatába.
+        <a href="/assets/pdf/Adatkezelesi_tajekoztato_3DOptika.pdf">Részletek</a>
+    </p>
+
+    <div class="cookie-actions">
+        <button class="btn" id="accept-cookies">Elfogadom</button>
+        <button class="btn" id="reject-cookies">Elutasítom</button>
+    </div>
+    </div>
     
     @include('_includes.footer')
     </body>
