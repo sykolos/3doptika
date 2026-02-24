@@ -58,9 +58,9 @@ jobs:
             PORT="${{ secrets.STAGING_PORT }}"
             TARGET_PATH="${{ secrets.STAGING_PATH }}"
           else
-            HOST="${{ secrets.PROD_HOST }}"
-            USER="${{ secrets.PROD_USER }}"
-            PORT="${{ secrets.PROD_PORT }}"
+            HOST="${{ secrets.STAGING_HOST }}"
+            USER="${{ secrets.STAGING_USER }}"
+            PORT="${{ secrets.STAGING_PORT }}"
             TARGET_PATH="${{ secrets.PROD_PATH }}"
           fi
 
