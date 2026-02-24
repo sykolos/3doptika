@@ -32,7 +32,7 @@
       <label class="consent">
         <input type="checkbox" name="consent" value="1" required>
         <span>Elfogadom az 
-          <a href="{{ $page->baseUrl }}/files/arlista.pdf" type="application/pdf" target="_blank">
+          <a href="{{ $page->baseUrl }}/pdf/Adatkezelesi_tajekoztato_3DOptika.pdf" type="application/pdf" target="_blank">
   adatkezelési tájékoztatót*
 </a></span>
       </label>

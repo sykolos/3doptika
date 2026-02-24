@@ -1,7 +1,7 @@
 ---
-title: "etgregreg6"
-description: "etgregreg6"
-date: 2026-02-16T10:23:49
+title: "teszt"
+description: "teszt"
+date: 2026-02-24T08:39:58
 author: admin
 featured_image: 
 ---
@@ -16,7 +16,7 @@ featured_image:
 
 <section class="pageHead">
   <div class="container">
-    <h1 class="page-title">etgregreg6</h1>
+    <h1 class="page-title">teszt</h1>
   </div>
 </section>
 
@@ -26,7 +26,7 @@ featured_image:
     <article class="infoCard infoCard--post">
 
       <div class="post-meta">
-        <span class="date">2026-02-16T10:23:49</span>
+        <span class="date">2026-02-24T08:39:58</span>
         <span class="author">admin</span>
       </div>
 

@@ -91,6 +91,25 @@
   </div>
 </section>
 
+<section class="docs_links">
+  <div class="container">
+    <h2 class="docs_links__title">Hasznos dokumentumok</h2>
+
+    <ul class="docs_links__list">
+      <li>
+        <a href="{{ $page->baseUrl }}/pdf/Impresszum_3DOptika.pdf" type="application/pdf" target="_blank">
+          Impresszum
+        </a>
+      </li>
+      <li>
+        <a href="{{ $page->baseUrl }}/pdf/Adatkezelesi_tajekoztato_3DOptika.pdf" type="application/pdf" target="_blank">
+          Adatkezelési tájékoztató
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
 @endsection
 
 @section('script_tags')
