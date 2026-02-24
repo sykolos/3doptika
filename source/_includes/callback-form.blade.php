@@ -31,7 +31,10 @@
 
       <label class="consent">
         <input type="checkbox" name="consent" value="1" required>
-        <span>Elfogadom az adatkezelési nyilatkozatot*</span>
+        <span>Elfogadom az 
+          <a href="{{ $page->baseUrl }}/files/arlista.pdf" type="application/pdf" target="_blank">
+  adatkezelési tájékoztatót*
+</a></span>
       </label>
 
       <div class="callback__actions">
