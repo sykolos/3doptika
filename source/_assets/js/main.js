@@ -52,17 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach(d => d.classList.remove('dot--active'));
 
     slides[index].classList.add('is-active');
-    dots[index].classList.add('dot--active');
+    dots[index]?.classList.add('dot--active');
     current = index;
   }
 
-  prev.addEventListener('click', () => {
-    showSlide((current - 1 + slides.length) % slides.length);
-  });
+  if (prev) {
+    prev.addEventListener('click', () => {
+      showSlide((current - 1 + slides.length) % slides.length);
+    });
+  }
 
-  next.addEventListener('click', () => {
-    showSlide((current + 1) % slides.length);
-  });
+  if (next) {
+    next.addEventListener('click', () => {
+      showSlide((current + 1) % slides.length);
+    });
+  }
 
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => showSlide(i));

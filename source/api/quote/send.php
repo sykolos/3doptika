@@ -36,7 +36,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 /* ---------------- CONFIG ---------------- */
 
 $CFG = [
-    'to_email'   => 'janos.kolos1@gmail.com',
+    'to_email'   => 'info@3doptika.hu',
     'to_name'    => '3D Optika',
 
     'from_email' => 'info@3doptika.hu',
