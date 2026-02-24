@@ -34,6 +34,9 @@ jobs:
       - name: Fetch WP data
         run: npm run fetch
 
+      - name: Generate blog post blades
+        run: node scripts/generate-blog-posts.js
+
       - name: Build assets (Mix)
         run: npm run prod
 
