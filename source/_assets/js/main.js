@@ -80,17 +80,42 @@ if (slides.length) {
 
 
 // =============================
-// COOKIE BANNER
+// COOKIE BANNER + GA4
 // =============================
 
 const banner = document.querySelector('.cookie-banner');
 const accept = document.getElementById('accept-cookies');
 const reject = document.getElementById('reject-cookies');
 
+function loadAnalytics() {
+
+  // Ha már betöltöttük egyszer, ne töltsük újra
+  if (window.gtag) return;
+
+  const script = document.createElement('script');
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-302EV7CHZ7';
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-302EV7CHZ7');
+}
+
 if (banner && accept && reject) {
 
   const consent = localStorage.getItem('cookie_consent');
 
+  // Ha korábban már elfogadta → automatikusan betöltjük
+  if (consent === 'accepted') {
+    loadAnalytics();
+  }
+
+  // Ha még nincs döntés → banner megjelenik
   if (!consent) {
     banner.classList.add('active');
   }
@@ -98,10 +123,12 @@ if (banner && accept && reject) {
   accept.addEventListener('click', () => {
     localStorage.setItem('cookie_consent', 'accepted');
     banner.classList.remove('active');
+    loadAnalytics();
   });
 
   reject.addEventListener('click', () => {
     localStorage.setItem('cookie_consent', 'rejected');
     banner.classList.remove('active');
   });
+
 }
