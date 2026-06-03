@@ -75,17 +75,6 @@
       <article class="teamCard">
         <img
           class="teamCard__img"
-          src="{{ $page->baseUrl }}/assets/images/team/Fanni-min.jpg"
-          alt="Fanni – optikus"
-          loading="lazy"
-        >
-        <div class="teamCard__name">Fanni</div>
-        <div class="teamCard__role">Optikus</div>
-      </article>
-
-      <article class="teamCard">
-        <img
-          class="teamCard__img"
           src="{{ $page->baseUrl }}/assets/images/team/Bobe-min.jpg"
           alt="Böbe – optikus"
           loading="lazy"

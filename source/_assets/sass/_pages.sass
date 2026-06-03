@@ -219,7 +219,8 @@
 /* A screenshot alapján: alul 3 kártya szépen egymás mellett desktopon */
 @media (min-width: 980px)
   .teamGrid
-    grid-template-columns: repeat(6, 1fr)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(2, auto)
     gap: 40px
     max-width: 1450px
     margin: 0 auto
@@ -227,14 +228,14 @@
   .teamCard
     width: 100%
 
-  .teamCard:nth-child(1),
-  .teamCard:nth-child(2)
-    grid-column: span 3
+  // .teamCard:nth-child(1),
+  // .teamCard:nth-child(2)
+  //   grid-column: span 3
 
-  .teamCard:nth-child(3),
-  .teamCard:nth-child(4),
-  .teamCard:nth-child(5)
-    grid-column: span 2
+  // .teamCard:nth-child(3),
+  // .teamCard:nth-child(4),
+  // .teamCard:nth-child(5)
+  //   grid-column: span 2
 
 
   /* =========================
