@@ -34,16 +34,16 @@ featured_image:
 
       <div class="post-content">
         
-<p><br>Látásszűrés, más néven látásellenőrzés: amennyiben az illetőnek nincs látásjavító eszköze (szemüveg vagy kontaktlencse), akkor a szemét ellenőrzik, ha pedig már van dioptriás korrekció, akkor a látás ellenőrzése a használt szemüvegben vagy kontaktlencsében történik. Így megállapíthatjuk, hogy szükség van-e a továbbiakban látás- vagy szemvizsgálatra.</p>
+<p class="wp-block-paragraph"><br>Látásszűrés, más néven látásellenőrzés: amennyiben az illetőnek nincs látásjavító eszköze (szemüveg vagy kontaktlencse), akkor a szemét ellenőrzik, ha pedig már van dioptriás korrekció, akkor a látás ellenőrzése a használt szemüvegben vagy kontaktlencsében történik. Így megállapíthatjuk, hogy szükség van-e a továbbiakban látás- vagy szemvizsgálatra.</p>
 
 
 
-<p>Mi a különbség a látásvizsgálat és a szemvizsgálat között?<br>Látásvizsgálat: a szem fénytörési hibáinak (optikai) felderítése és annak korrigálása. Egyéb szemészeti eltérésekre már nem kerül sor (szem patológiája, anatómiája). A vizsgálat eredménye lehet olyan látásjavító eszköz (eszközök) felírása, ami a szükséges távolságokhoz éles képet ad.</p>
+<p class="wp-block-paragraph">Mi a különbség a látásvizsgálat és a szemvizsgálat között?<br>Látásvizsgálat: a szem fénytörési hibáinak (optikai) felderítése és annak korrigálása. Egyéb szemészeti eltérésekre már nem kerül sor (szem patológiája, anatómiája). A vizsgálat eredménye lehet olyan látásjavító eszköz (eszközök) felírása, ami a szükséges távolságokhoz éles képet ad.</p>
 
 
 
-<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-ad2f72ca wp-block-group-is-layout-flex">
-<p>Szemvizsgálat: legtöbb esetben magában foglalja a látásvizsgálatot is, amellett pedig kiegészül a szemészeti eltérések, betegségek felderítésével is (pl. szürkehályog, zöldhályog, szemfenéki eltérések, stb.). A szemvizsgálat a látásvizsgálatnál jóval összetettebb, a szem egészét alapul vevő vizsgálatot takar.</p>
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-8f761849 wp-block-group-is-layout-flex">
+<p class="wp-block-paragraph">Szemvizsgálat: legtöbb esetben magában foglalja a látásvizsgálatot is, amellett pedig kiegészül a szemészeti eltérések, betegségek felderítésével is (pl. szürkehályog, zöldhályog, szemfenéki eltérések, stb.). A szemvizsgálat a látásvizsgálatnál jóval összetettebb, a szem egészét alapul vevő vizsgálatot takar.</p>
 </div>
 
       </div>
