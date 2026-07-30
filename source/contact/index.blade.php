@@ -40,6 +40,10 @@
       </a>
     </div>
   </div>
+
+  <div class="contactInfo__notice">
+    Vizsgálat csak előzetes bejelentkezés alapján lehetséges.
+  </div>
 </div>
 
       <div class="mapBox" aria-label="Térkép">
