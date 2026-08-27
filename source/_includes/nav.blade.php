@@ -42,7 +42,7 @@
     <li class="mobile-nav__item"><a href="/">főoldal</a></li>
     <li class="mobile-nav__item"><a href="/about">rólunk</a></li>
     <li class="mobile-nav__item"><a href="/services">szolgáltatásaink</a></li>
-    <li class="mobile-nav__item"><a href="#">blog</a></li>
+    <li class="mobile-nav__item"><a href="/blog">blog</a></li>
     <li class="mobile-nav__item"><a href="/gyik">GYIK</a></li>
     <li class="mobile-nav__item"><a href="/contact">kapcsolat</a></li>
     <li class="mobile-nav__item">
