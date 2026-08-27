@@ -1,14 +1,16 @@
 {
     "private": true,
-        "scripts": {
+    "scripts": {
         "dev": "mix",
         "watch": "mix watch",
         "staging": "NODE_ENV=staging mix",
         "prod": "mix --production",
         "production": "npm run prod",
+        "test": "node --test tests/*.test.mjs && php tests/content.php && php tests/quote-endpoint.php",
+        "test:build": "php tests/build.php",
         "fetch": "node scripts/fetch-wp-posts.js && node scripts/fetch-wp-services.js && node scripts/fetch-wp-faq.js && node scripts/fetch-wp-testimonials.js",
         "build": "npm run fetch && node scripts/generate-blog-posts.js && npm run prod && ./vendor/bin/jigsaw build production"
-},
+    },
     "devDependencies": {
         "laravel-mix": "^6.0.39",
         "laravel-mix-jigsaw": "^2.0.0",

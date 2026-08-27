@@ -13,65 +13,6 @@
 @import "index/services"
 @import "index/testimonials"
 
-.special-hours-banner
-  position: fixed
-  top: 1.6rem
-  left: 50%
-  transform: translateX(-50%)
-  width: min(92vw, 520px)
-  background: #fff
-  color: $text
-  border: 1px solid rgba(13, 79, 121, 0.18)
-  border-left: 6px solid $blue
-  border-radius: 8px
-  box-shadow: 0 18px 42px rgba(10, 35, 55, 0.18)
-  padding: 1.8rem 4.8rem 1.8rem 2rem
-  z-index: 10000
-
-  &[hidden]
-    display: none
-
-  &__close
-    position: absolute
-    top: 0.8rem
-    right: 1rem
-    width: 3rem
-    height: 3rem
-    border: 0
-    border-radius: 50%
-    background: rgba(4, 62, 108, 0.08)
-    color: $navy
-    cursor: pointer
-    font-family: $font-primary
-    font-size: 1.8rem
-    font-weight: 700
-    line-height: 1
-
-    &:hover
-      background: rgba(4, 62, 108, 0.16)
-
-  &__title
-    margin: 0 0 0.6rem
-    color: $navy
-    font-size: 1.5rem
-    font-weight: 700
-    line-height: 1.35
-
-  &__list
-    margin: 0 0 1.2rem
-    padding: 0
-    list-style: none
-    color: $text
-    font-size: 1.4rem
-    line-height: 1.55
-
-    &:last-child
-      margin-bottom: 0
-
-  +mq(520px)
-    top: 0.8rem
-    padding: 1.6rem 4.4rem 1.6rem 1.6rem
-
 .cookie-banner
   position: fixed
   bottom: 0

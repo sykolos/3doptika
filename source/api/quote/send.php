@@ -36,7 +36,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 /* ---------------- CONFIG ---------------- */
 
 $CFG = [
-    'to_email'   => 'janos.kolos1@gmail.com',
+    'to_emails'  => ['3doptika@gmail.com', 'info@3doptika.hu'],
     'to_name'    => '3D Optika',
 
     'from_email' => 'info@3doptika.hu',
@@ -175,7 +175,9 @@ try {
     $mail->SMTPSecure = $CFG['smtp_secure'];
 
     $mail->setFrom($CFG['from_email'], $CFG['from_name']);
-    $mail->addAddress($CFG['to_email'], $CFG['to_name']);
+    foreach ($CFG['to_emails'] as $recipient) {
+        $mail->addAddress($recipient, $CFG['to_name']);
+    }
 
     if ($email !== '') {
         $mail->addReplyTo($email, $fullName);

@@ -1,12 +1,14 @@
 // @ts-nocheck
 
 import fs from "fs";
+import path from "node:path";
 
 export async function fetchWp({
   name,
   url,
   output,
-  mapItem
+  mapItem,
+  requiredFields = ["title", "content"]
 }) {
   console.log(`▶ ${name} lekérése...`);
 
@@ -14,6 +16,7 @@ export async function fetchWp({
 
   try {
     const res = await fetch(url, {
+      signal: AbortSignal.timeout(30000),
       headers: {
         'Accept': 'application/json',
         'User-Agent': '3DOptika-Build-Bot'
@@ -31,15 +34,28 @@ export async function fetchWp({
     throw err; //  CI STOP
   }
 
-  if (!Array.isArray(data)) {
-    console.warn(`⚠️ ${name}: nem tömb válasz, üres lista`);
-    data = [];
+  if (!Array.isArray(data) || data.length === 0) {
+    throw new Error(`${name}: empty or invalid response; existing data was not changed.`);
   }
 
   const items = data.map(mapItem);
 
-  fs.mkdirSync("source/_data", { recursive: true });
-  fs.writeFileSync(output, JSON.stringify(items, null, 2));
+  for (const [index, item] of items.entries()) {
+    for (const field of requiredFields) {
+      if (typeof item?.[field] !== "string" || item[field].trim() === "") {
+        throw new Error(`${name}: item ${index + 1} has no ${field}; existing data was not changed.`);
+      }
+    }
+  }
+
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  const temporaryOutput = `${output}.tmp`;
+  try {
+    fs.writeFileSync(temporaryOutput, JSON.stringify(items, null, 2));
+    fs.renameSync(temporaryOutput, output);
+  } finally {
+    fs.rmSync(temporaryOutput, { force: true });
+  }
 
   console.log(`✔ ${items.length} ${name} mentve → ${output}`);
 }

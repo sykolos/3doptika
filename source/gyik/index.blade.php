@@ -32,22 +32,22 @@
 
 @section('script_tags')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    @foreach ($page->faq as $index => $item)
-      {
-        "@type": "Question",
-        "name": "{{ strip_tags($item['question']) }}",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "{{ strip_tags($item['answer']) }}"
-        }
-      }@if (!$loop->last),@endif
-    @endforeach
-  ]
-}
+@php
+echo json_encode([
+  '@context' => 'https://schema.org',
+  '@type' => 'FAQPage',
+  'mainEntity' => $page->faq->map(function ($item) {
+    return [
+      '@type' => 'Question',
+      'name' => strip_tags($item['question']),
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => strip_tags($item['answer']),
+      ],
+    ];
+  })->values()->all(),
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_THROW_ON_ERROR);
+@endphp
 </script>
 @endsection
 

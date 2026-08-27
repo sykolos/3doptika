@@ -10,6 +10,7 @@ fetchWp({
   mapItem: item => ({
     title: item.title?.rendered ?? "",
     text: item.content?.rendered ?? "",
-    author: item.author ?? ""
-  })
+    author: typeof item.author === "string" ? item.author : (item.title?.rendered ?? "")
+  }),
+  requiredFields: ["text", "author"]
 });

@@ -30,6 +30,9 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
+      - name: Test content import and contact recipients
+        run: npm test
+
       # 👇 FONTOS: fetch külön lépésben
       - name: Fetch WP data
         run: npm run fetch
@@ -42,6 +45,9 @@ jobs:
 
       - name: Build Jigsaw (production)
         run: ./vendor/bin/jigsaw build production
+
+      - name: Verify generated content before deployment
+        run: npm run test:build
 
       - name: Install sshpass
         run: |

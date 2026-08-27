@@ -41,25 +41,6 @@
 
     <body class="text-gray-900 font-sans antialiased">
         
-        <aside class="special-hours-banner" id="special-hours-banner" role="dialog" aria-labelledby="special-hours-title">
-            <button class="special-hours-banner__close" id="special-hours-close" type="button" aria-label="Értesítés bezárása">x</button>
-
-            <div class="special-hours-banner__content">
-                <p class="special-hours-banner__title" id="special-hours-title">Rövidített nyitva tartás kivételesen:</p>
-                <ul class="special-hours-banner__list">
-                    <li>aug. 4. (kedd): 9:00-16:00</li>
-                    <li>aug. 5. (szerda): 9:00-16:00</li>
-                </ul>
-
-                <p class="special-hours-banner__title">Kivételesen zárva:</p>
-                <ul class="special-hours-banner__list">
-                    <li>aug. 6. (csütörtök): ZÁRVA</li>
-                    <li>aug. 7. (péntek): ZÁRVA</li>
-                    <li>aug. 8. (szombat): ZÁRVA</li>
-                </ul>
-            </div>
-        </aside>
-
         @include('_includes.nav')
 
     <main>

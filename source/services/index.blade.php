@@ -13,7 +13,7 @@
   <div class="container">
 
     @forelse ($page->services as $service)
-      <article class="infoCard">
+      <article class="infoCard" id="{{ $service['slug'] }}">
         <h2 class="infoCard__title">
           {!! $service['title'] !!}
         </h2>
@@ -91,19 +91,19 @@
 
 @section('script_tags')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [
-    @foreach ($page->services as $index => $service)
-    {
-      "@type": "Service",
-      "name": "{{ strip_tags($service['title']) }}",
-      "description": "{{ strip_tags($service->content ?? '') }}",
-      "position": {{ $index + 1 }}
-    }@if(!$loop->last),@endif
-    @endforeach
-  ]
-}
+@php
+echo json_encode([
+  '@context' => 'https://schema.org',
+  '@type' => 'ItemList',
+  'itemListElement' => $page->services->map(function ($service, $index) {
+    return [
+      '@type' => 'Service',
+      'name' => strip_tags($service['title']),
+      'description' => strip_tags($service['content']),
+      'position' => $index + 1,
+    ];
+  })->values()->all(),
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_THROW_ON_ERROR);
+@endphp
 </script>
 @endsection

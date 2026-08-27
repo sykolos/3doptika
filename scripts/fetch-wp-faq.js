@@ -9,5 +9,6 @@ fetchWp({
   mapItem: item => ({
     question: item.title?.rendered ?? "",
     answer: item.content?.rendered ?? ""
-  })
+  }),
+  requiredFields: ["question", "answer"]
 });

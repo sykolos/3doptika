@@ -37,15 +37,6 @@ if (mobileNav && menu && toggle) {
   });
 }
 
-const specialHoursBanner = document.getElementById('special-hours-banner');
-const specialHoursClose = document.getElementById('special-hours-close');
-
-if (specialHoursBanner && specialHoursClose) {
-  specialHoursClose.addEventListener('click', () => {
-    specialHoursBanner.setAttribute('hidden', '');
-  });
-}
-
 // =============================
 // TESTIMONIALS
 // =============================

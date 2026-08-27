@@ -161,7 +161,7 @@
         @foreach ($page->services as $service)
           <a
             class="service-item"
-            href="/services/#{{ $service['slug'] ?? '' }}"
+            href="/services/#{{ $service['slug'] }}"
           >
             <span class="service-item__text">
               {{ $service['title'] }}
@@ -281,9 +281,9 @@ echo json_encode([
                   "description" => strip_tags($service->content ?? ''),
               ]
           ];
-      }, (array) $page->services)
+      }, $page->services->all())
   ]
-], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_THROW_ON_ERROR);
 @endphp
 </script>
 @endsection
