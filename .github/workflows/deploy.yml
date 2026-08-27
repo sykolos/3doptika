@@ -35,7 +35,10 @@ jobs:
 
       # 👇 FONTOS: fetch külön lépésben
       - name: Fetch WP data
-        run: npm run fetch
+        run: |
+          if ! npm run fetch; then
+            echo "WordPress adatok most nem elérhetők, a repóban lévő ellenőrzött tartalommal folytatjuk."
+          fi
 
       - name: Generate blog post blades
         run: node scripts/generate-blog-posts.js
